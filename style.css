@@ -7,19 +7,15 @@ body {
     color: #333;
 }
 
-/* Estilo do cabeçalho */
+/* Cabeçalho */
 header {
     background-color: #005c99;
     color: white;
-    padding: 20px;
     text-align: center;
-}
-
-header.cabecalho {
     padding: 30px;
 }
 
-/* Estilo dos links de navegação */
+/* Navegação */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -44,12 +40,13 @@ nav ul li a:hover {
     background-color: #005c99;
 }
 
-/* Estilo das seções principais */
+/* Conteúdo principal */
 main {
     padding: 20px;
 }
 
-main.container, main.grid-container {
+main.container,
+main.grid-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -57,6 +54,7 @@ main.container, main.grid-container {
     padding: 30px;
 }
 
+/* Seções */
 section {
     margin-bottom: 40px;
 }
@@ -66,8 +64,9 @@ h2 {
     padding-bottom: 5px;
 }
 
-/* Estilo para os blocos de exemplo e exercício */
-.exemplo, .exercicio {
+/* Blocos de exemplo e exercício */
+.exemplo,
+.exercicio {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -80,14 +79,13 @@ h2 {
     margin-top: 0;
 }
 
-/* Oculta conteúdo expansível por padrão */
+/* Conteúdo expansível */
 .conteudo-expansivel,
 .resolucao-expansivel {
     display: none;
-    margin-top: 10px;    
+    margin-top: 10px;
 }
 
-/* Classe para mostrar conteúdo expandido */
 .expandido {
     display: block;
     background-color: #f0f0f0;
@@ -95,7 +93,7 @@ h2 {
     border-radius: 4px;
 }
 
-/* Estilo das listas */
+/* Listas */
 ul {
     list-style-type: none;
     padding-left: 0;
@@ -105,7 +103,7 @@ li {
     margin: 8px 0;
 }
 
-/* Estilo para botões */
+/* Botões */
 button {
     background-color: #007acc;
     color: white;
@@ -120,29 +118,32 @@ button:hover {
     background-color: #005c99;
 }
 
-/* Estilo para resultado da verificação */
+/* Resultado */
 .resultado {
     font-weight: bold;
     margin-top: 10px;
 }
 
-/* Estilo para cards de turma e colégio */
-.turma-card, .colégio {
+/* Cards */
+.turma-card,
+.colégio {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
     text-align: center;
     width: 200px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
-.turma-card:hover, .colégio:hover {
+.turma-card:hover,
+.colégio:hover {
     transform: translateY(-5px);
 }
 
-.turma-card a, .colégio a {
+.turma-card a,
+.colégio a {
     text-decoration: none;
     color: #005c99;
 }
@@ -153,6 +154,7 @@ button:hover {
     margin-bottom: 10px;
 }
 
+/* Espaço reservado vazio */
 .empty {
     visibility: hidden;
 }
@@ -163,9 +165,10 @@ button:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
+    justify-items: center;
 }
 
-/* Footer */
+/* Rodapé */
 footer {
     background-color: #005c99;
     color: white;
