@@ -1,0 +1,179 @@
+/* Estilo base do corpo do documento */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #005c99;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header.cabecalho {
+    padding: 30px;
+}
+
+/* Estilo dos links de navegação */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #007acc;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #005c99;
+}
+
+/* Estilo das seções principais */
+main {
+    padding: 20px;
+}
+
+main.container, main.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    border-bottom: 2px solid #005c99;
+    padding-bottom: 5px;
+}
+
+/* Estilo para os blocos de exemplo e exercício */
+.exemplo, .exercicio {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.exemplo h3 {
+    cursor: pointer;
+    margin-top: 0;
+}
+
+/* Oculta conteúdo expansível por padrão */
+.conteudo-expansivel,
+.resolucao-expansivel {
+    display: none;
+    margin-top: 10px;    
+}
+
+/* Classe para mostrar conteúdo expandido */
+.expandido {
+    display: block;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Estilo das listas */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* Estilo para botões */
+button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #005c99;
+}
+
+/* Estilo para resultado da verificação */
+.resultado {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Estilo para cards de turma e colégio */
+.turma-card, .colégio {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.turma-card:hover, .colégio:hover {
+    transform: translateY(-5px);
+}
+
+.turma-card a, .colégio a {
+    text-decoration: none;
+    color: #005c99;
+}
+
+.colégio img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.empty {
+    visibility: hidden;
+}
+
+/* Grid layout para as turmas */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #005c99;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+footer a {
+    color: white;
+}

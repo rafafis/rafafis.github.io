@@ -1,0 +1,77 @@
+// Função para expandir ou recolher o conteúdo do exemplo ao clicar no título
+function toggleExemplo(titulo) {
+    const conteudo = titulo.nextElementSibling;
+    conteudo.classList.toggle('expandido');
+}
+
+// Função para expandir ou recolher a resolução ao clicar no botão "Ver resolução"
+function toggleResolucao(botao) {
+    const resolucao = botao.nextElementSibling;
+    resolucao.classList.toggle('expandido');
+}
+
+// Função para verificar a resposta de um exercício
+function verificarResposta(botao) {
+    // Encontra o container do exercício atual
+    const container = botao.closest('.exercicio');
+    const radios = container.querySelectorAll('input[name="resposta"]');
+    const resultado = container.querySelector('.resultado');
+    let selecionado = null;
+
+    // Verifica qual opção foi selecionada
+    radios.forEach((radio) => {
+        if (radio.checked) {
+            selecionado = radio.value;
+        }
+    });
+
+    // Se nenhuma opção foi selecionada
+    if (!selecionado) {
+        resultado.textContent = "Por favor, selecione uma alternativa.";
+        resultado.style.color = "orange";
+        return;
+    }
+
+    // Verifica se a resposta está correta (a chave correta deve ser ajustada para cada exercício)
+    const respostasCorretas = {
+        'ex1': 'd' // Exemplo: para o exercício com id="ex1", a resposta é "d"
+    };
+    
+    // Obtém o ID do exercício ou usa um padrão
+    const exercicioId = container.id || 'ex1';
+    const respostaCorreta = respostasCorretas[exercicioId];
+    
+    if (selecionado === respostaCorreta) {
+        resultado.textContent = "✅ Correto!";
+        resultado.style.color = "green";
+    } else {
+        resultado.textContent = "❌ Incorreto. Tente novamente.";
+        resultado.style.color = "red";
+    }
+}
+
+// Função para mostrar a resposta das questões com o efeito de transição
+function openResposta(id) {
+    let resposta = document.getElementById(`answer-${id}`);
+    let botao = document.getElementById(`bt-reposta-${id}`);
+    
+    if (resposta && botao) {
+        botao.style.pointerEvents = 'none';
+        botao.style.backgroundColor = '#d4175e';
+        resposta.style.height = `${resposta.scrollHeight}px`;
+    }
+}
+
+// Inicializa o KaTeX para renderizar fórmulas matemáticas, se disponível
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        });
+    }
+});
