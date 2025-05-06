@@ -41,7 +41,14 @@ nav ul li a:hover {
 }
 
 /* Conteúdo principal */
+/* old main
 main {
+    padding: 20px;
+} */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
