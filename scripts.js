@@ -75,3 +75,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// função botão copiar
+function copiarCodigo(botao) {
+  const codeBlock = botao.nextElementSibling.querySelector('code');
+  const texto = codeBlock.innerText;
+
+  navigator.clipboard.writeText(texto).then(() => {
+    botao.innerText = "Copiado!";
+    setTimeout(() => botao.innerText = "Copiar", 2000);
+  }).catch(err => {
+    console.error("Erro ao copiar:", err);
+  });
+}

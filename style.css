@@ -175,6 +175,21 @@ button:hover {
     justify-items: center;
 }
 
+/* botão de copiar */
+.copy-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+.copy-btn:hover {
+  background-color: #45a049;
+}
+
 /* Rodapé */
 footer {
     background-color: #005c99;
