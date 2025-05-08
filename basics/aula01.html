@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Anos - Física</title>
+    <link rel="stylesheet" href="../style.css">
+    <!-- JS -->
+    <script src="../scripts.js" defer></script>
+	<link rel="stylesheet" href="../prism.css">
+    <!-- KaTeX CSS e JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Aula 01</h1>
+    </header>
+
+    <main>
+        <section id="aula">
+            <h2>Aula 01: Piscando um LED</h2>
+
+  <h1>Vamos fazer uma luz piscar com o Arduino!</h1>
+  <p>O Arduino é como um pequeno cérebro eletrônico. Com ele, podemos controlar luzes, sons e muito mais!</p>
+  <p>Hoje, vamos aprender a fazer uma luz piscar: acender por um segundo e apagar por um segundo, repetidamente.</p>
+
+  <h2>O que você precisa:</h2>
+  <ul>
+    <li>Um Arduino (como o Arduino Uno)</li>
+    <li>Um cabo USB para conectar o Arduino ao computador</li>
+    <li>Um LED (luzinha) e um resistor (se quiser usar um LED externo)</li>
+  </ul>
+  
+  <h2>Esquema de montagem</h2>
+<img src="https://docs.arduino.cc/static/52c238dba09c2e40b69e0612ff02ef0f/29114/circuit.png" alt="Esquema do circuito Arduino" style="max-width: 100%; height: auto;">
+
+  <h2>O código para fazer a luz piscar:</h2>
+<!-- Bloco com botão copiar -->
+<div class="code-container">
+  <button class="copy-btn" onclick="copiarCodigo(this)">Copiar código</button>
+    <pre><code class="language-ino">
+const int LED_PIN = 13; // O pino 13 já tem uma luz no Arduino
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT); // Dizemos que o pino 13 será usado para saída
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH); // Acende a luz
+  delay(1000);                 // Espera 1 segundo (1000 milissegundos)
+  digitalWrite(LED_PIN, LOW);  // Apaga a luz
+  delay(1000);                 // Espera mais 1 segundo
+}
+	</code></pre></div>
+
+  <h2>Entendendo o código:</h2>
+  <p><strong>setup()</strong>: Esta parte acontece uma vez quando o Arduino é ligado. Aqui, dizemos que vamos usar o pino 13 para controlar uma luz.</p>
+  <p><strong>loop()</strong>: Esta parte acontece várias vezes, sem parar. Primeiro, acendemos a luz, esperamos 1 segundo, apagamos a luz e esperamos mais 1 segundo. Depois, tudo se repete!</p>
+
+  <h2>Experimente!</h2>
+  <p>Conecte seu Arduino ao computador, abra o programa do Arduino (IDE), cole o código acima e envie para o Arduino. Você verá a luz piscando!</p>
+
+  <p>Divirta-se explorando o mundo da programação com Arduino!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="index.html">Voltar para a página principal</a></p>
+    </footer>
+</body>
+</html>

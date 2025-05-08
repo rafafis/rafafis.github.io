@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo: Piscar com Arduino</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #005c99;
+    }
+    pre {
+      background-color: #e0e0e0;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vamos fazer uma luz piscar com o Arduino!</h1>
+  <p>O Arduino é como um pequeno cérebro eletrônico. Com ele, podemos controlar luzes, sons e muito mais!</p>
+  <p>Hoje, vamos aprender a fazer uma luz piscar: acender por um segundo e apagar por um segundo, repetidamente.</p>
+
+  <h2>O que você precisa:</h2>
+  <ul>
+    <li>Um Arduino (como o Arduino Uno)</li>
+    <li>Um cabo USB para conectar o Arduino ao computador</li>
+    <li>Um LED (luzinha) e um resistor (se quiser usar um LED externo)</li>
+  </ul>
+
+  <h2>O código para fazer a luz piscar:</h2>
+  <pre><code>
+const int LED_PIN = 13; // O pino 13 já tem uma luz no Arduino
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT); // Dizemos que o pino 13 será usado para saída
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH); // Acende a luz
+  delay(1000);                 // Espera 1 segundo (1000 milissegundos)
+  digitalWrite(LED_PIN, LOW);  // Apaga a luz
+  delay(1000);                 // Espera mais 1 segundo
+}
+  </code></pre>
+
+  <h2>Entendendo o código:</h2>
+  <p><strong>setup()</strong>: Esta parte acontece uma vez quando o Arduino é ligado. Aqui, dizemos que vamos usar o pino 13 para controlar uma luz.</p>
+  <p><strong>loop()</strong>: Esta parte acontece várias vezes, sem parar. Primeiro, acendemos a luz, esperamos 1 segundo, apagamos a luz e esperamos mais 1 segundo. Depois, tudo se repete!</p>
+
+  <h2>Experimente!</h2>
+  <p>Conecte seu Arduino ao computador, abra o programa do Arduino (IDE), cole o código acima e envie para o Arduino. Você verá a luz piscando!</p>
+
+  <p>Divirta-se explorando o mundo da programação com Arduino!</p>
+</body>
+</html>
+
