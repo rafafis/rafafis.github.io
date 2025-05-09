@@ -55,30 +55,30 @@ desenvolvidos e Quizizz.
         <section id="aulas">
             <h2>Aulas</h2>
 <div class="exemplo">
-  <h3 onclick="toggleExemplo(this)">Aula 10 - Robô ultrassônico</h3>
+  <h3 onclick="toggleExemplo(this)">Aula 16 - Servo Motores</h3>
   <div class="conteudo-expansivel">
     <div class="video-container">
         <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/17ZLnMWPvGI" 
-            title="Aula 10 - Robô ultrassônico" 
+            src="https://www.youtube.com/embed/vh-rhfyKqaQ" 
+            title="Aula 16 - Servo Motores" 
             frameborder="0" allowfullscreen>
         </iframe>
     </div>
 	<br><p>
         <a class="btn-pdf"
-            href="https://aluno.escoladigital.pr.gov.br//sites//alunos//arquivos_restritos//files//documento//2021-07//aula10_robo_ultrassonico_m2.pdf"
+            href="https://aluno.escoladigital.pr.gov.br//sites//alunos//arquivos_restritos//files//documento//2021-07//aula16_servos_motores_m2.pdf"
             target="_blank">
             📄 Baixar Manual da Aula (PDF)
         </a>
     </p>
 	<div class="modelo-3d">
     <h4>Visualização 3D do Projeto:</h4>
-    <iframe title="Semáforo Cruzamento" frameborder="0" allowfullscreen
+    <iframe title="Servo Motores" frameborder="0" allowfullscreen
         mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking"
         xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
         width="640" height="480"
-        src="https://sketchfab.com/models/154513e253b74cde8d8ee0af9860b862/embed">
+        src="https://sketchfab.com/models/5aa81171a538478abff61cf5dfc86473/embed">
     </iframe>
 </div>
 
@@ -87,88 +87,30 @@ desenvolvidos e Quizizz.
 <div class="code-container">
   <button class="copy-btn" onclick="copiarCodigo(this)">Copiar código</button>
     <pre><code class="language-Arduino">
-/*
-  Programa: Robô Autônomo com Desvio de Obstáculos
-  Descrição: Controla um robô que se move para frente e realiza uma manobra
-  quando detecta um obstáculo a menos de 40 cm de distância com um sensor ultrassônico.
-*/
-
-/* ====== Inclusão de Bibliotecas ====== */
-#include <AFMotor.h>      // Biblioteca para controle de motores com a Adafruit Motor Shield
-#include <Ultrasonic.h>   // Biblioteca para sensor ultrassônico HC-SR04
-
-/* ====== Definições de Pinos ====== */
-const int PINO_TRIG = 10;  // Pino TRIG do sensor ultrassônico
-const int PINO_ECHO = 9;   // Pino ECHO do sensor ultrassônico
-
-/* ====== Definições de Constantes ====== */
-const int POTENCIA_MAXIMA = 200;       // Potência dos motores (0 a 255)
-const int DISTANCIA_SEGURA_CM = 40;    // Distância mínima segura para seguir em frente
-
-/* ====== Instanciação dos Objetos ====== */
-AF_DCMotor motorEsquerdo(3);           // Motor esquerdo conectado na porta M3
-AF_DCMotor motorDireito(2);            // Motor direito conectado na porta M2
-Ultrasonic sensorUltrassonico(PINO_TRIG, PINO_ECHO); // Sensor ultrassônico
-
-/* ====== Variável Global ====== */
-long distanciaCm = 0;  // Armazena a distância medida pelo sensor
-
-/* ====== Função de Configuração ====== */
+/* Programa: Utilizando servo motor */
+/* Inclui a biblioteca de controle do servo */
+#include &lt;Servo.h&gt;
+/* Cria um objeto para controlar o servo */
+Servo meuservo;
+/* Define o pino de dados do servo */
+int Pino_Servo = 7;
 void setup() {
-  // Inicializa os motores parados
-  motorEsquerdo.run(RELEASE);
-  motorDireito.run(RELEASE);
-
-  // Aguardar 3 segundos antes de iniciar
-  delay(3000);
+/* Endereça o objeto servo ao pino de dados definido */
+meuservo.attach(Pino_Servo);
 }
-
-/* ====== Função para Mover para Frente ====== */
-void moverParaFrente(int potencia) {
-  motorEsquerdo.setSpeed(potencia);
-  motorDireito.setSpeed(potencia);
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(FORWARD);
-}
-
-/* ====== Função para Realizar a Manobra de Desvio ====== */
-void desviarObstaculo(int potencia) {
-  int potenciaReduzida = int(potencia * 0.6);  // Reduz a potência para 60%
-
-  motorEsquerdo.setSpeed(potenciaReduzida);
-  motorDireito.setSpeed(potenciaReduzida);
-
-  // Para os motores antes de manobrar
-  motorEsquerdo.run(RELEASE);
-  motorDireito.run(RELEASE);
-  delay(500);
-
-  // Gira o robô: motor esquerdo para frente, motor direito para trás
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(BACKWARD);
-  delay(1000);
-
-  // Para novamente após a manobra
-  motorEsquerdo.run(RELEASE);
-  motorDireito.run(RELEASE);
-  delay(500);
-}
-
-/* ====== Função Principal de Loop ====== */
 void loop() {
-  // Lê a distância atual do sensor ultrassônico
-  distanciaCm = sensorUltrassonico.read();
-
-  // Verifica se há obstáculo próximo
-  if (distanciaCm <= DISTANCIA_SEGURA_CM) {
-    // Se estiver muito próximo, realiza manobra
-    desviarObstaculo(POTENCIA_MAXIMA);
-  } else {
-    // Caso contrário, segue em frente
-    moverParaFrente(POTENCIA_MAXIMA);
-  }
-
-  delay(100);  // Pequeno atraso para estabilidade da leitura
+/* Posiciona o servo em 0 graus */
+meuservo.write(0);
+/* Aguarda 1 segundo */
+delay(1000);
+/* Posiciona o servo em 90 graus */
+meuservo.write(90);
+/* Aguarda 1 segundo */
+delay(1000);
+/* Posiciona o servo em 180 graus */
+meuservo.write(180);
+/* Aguarda 1 segundo */
+delay(1000);
 }
     </code></pre>
   </div>
