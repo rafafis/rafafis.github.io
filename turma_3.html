@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <!-- JS -->
     <script src="scripts.js" defer></script>
+	<!-- Scripts do MathJax -->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	 </script>
+
     <!-- KaTeX CSS e JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
@@ -42,23 +48,11 @@
             <ul><li><a href="pdfs/campoeletrico.pdf" target="_blank">Aula N6: Campo Elétrico</a></li></ul>
         </section>
 
-        <section id="exemplos">
-            <h2>Exemplos</h2>
-            <div class="exemplo">
-                <h3 onclick="toggleExemplo(this)">Aula 01</h3>
-                <div class="conteudo-expansivel">
-                    <p><strong>Questão 01:</strong> Em breve</p>
-                    <button onclick="toggleResolucao(this)">Ver resolução</button>
-                    <div class="resolucao-expansivel">
-                        <p><strong>Resolução:</strong></p>
-                        \[\text{Tempo} = 1{,}5\ \text{h} \]
-                        \[ \text{Velocidade média} = v_m \]
-                        \[ v_m = \frac{\Delta S}{\Delta t} \]
-                        \[ v_m = \frac{90}{1,5} = 60\ \text{km/h}\]
-                    </div>
-                </div>
-            </div>
-        </section>
+		<section id="exemplos">
+			<h2>Exemplos</h2>
+			<div id="container-exemplos"></div>
+		</section>
+
 
         <section id="exercicios">
             <h2>Exercícios</h2>

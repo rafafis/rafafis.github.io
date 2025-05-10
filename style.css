@@ -105,16 +105,25 @@ h2 {
 /* Conteúdo expansível */
 .conteudo-expansivel,
 .resolucao-expansivel {
-    display: none;
+    display: none; 
     margin-top: 10px;
 }
-
+/*
 .expandido {
     display: block;
     background-color: #f0f0f0;
     padding: 10px;
     border-radius: 4px;
 }
+*/
+.conteudo-expansivel.expandido,
+.resolucao-expansivel.expandido {
+    display: block;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
 
 /* Listas */
 ul {
