@@ -62,20 +62,6 @@ function openResposta(id) {
     }
 }
 
-// Inicializa o KaTeX para renderizar fórmulas matemáticas, se disponível
-document.addEventListener('DOMContentLoaded', function() {
-    if (typeof renderMathInElement === 'function') {
-        renderMathInElement(document.body, {
-            delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "\\[", right: "\\]", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\(", right: "\\)", display: false}
-            ]
-        });
-    }
-});
-
 // função botão copiar
 function copiarCodigo(botao) {
   const codeBlock = botao.nextElementSibling.querySelector('code');
@@ -89,46 +75,68 @@ function copiarCodigo(botao) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM carregado, começando a carregar exemplos...");
-    const container = document.getElementById("container-exemplos");
+// Função para reprocessar o MathJax no conteúdo carregado dinamicamente
+function processarMathJax() {
+    console.log("Reprocessando MathJax...");
 
-    if (!container) {
-        console.error("Container de exemplos não encontrado!");
-        return;
+    // Verifica se MathJax está disponível como objeto global
+    if (window.MathJax) {
+        console.log("MathJax global encontrado, usando MathJax.typeset()");
+        window.MathJax.typeset();
+    }
+    // Para versões mais antigas do MathJax
+    else if (window.MathJax && window.MathJax.Hub) {
+        console.log("MathJax.Hub encontrado, usando MathJax.Hub.Queue()");
+        window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
+    }
+    // Para KaTeX
+    else if (typeof renderMathInElement === 'function') {
+        console.log("renderMathInElement encontrado (KaTeX)");
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        });
+    } else {
+        console.warn("Não foi possível encontrar MathJax ou KaTeX para processar equações");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Inicializa o KaTeX, se disponível, para o conteúdo inicial
+    if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        });
     }
 
-    // Adicionar um indicador visual de carregamento
-    const loadingDiv = document.createElement("div");
-    loadingDiv.textContent = "Carregando exemplos...";
-    loadingDiv.style.padding = "10px";
-    loadingDiv.style.backgroundColor = "#f0f0f0";
-    loadingDiv.style.borderRadius = "5px";
-    loadingDiv.style.marginBottom = "15px";
-    container.appendChild(loadingDiv);
+    // Carrega os exemplos
+    const container = document.getElementById("container-exemplos");
+    if (!container) return;
 
     const totalExemplos = 10; // altere conforme o número de exemplos
-    let loadedCount = 0;
-    let errorCount = 0;
+    let exemplosCarregados = 0;
 
     for (let i = 1; i <= totalExemplos; i++) {
         const numeroFormatado = String(i).padStart(2, '0');
         const url = `t3/exemplo${numeroFormatado}.html`;
 
-        console.log(`Tentando carregar exemplo ${i} de ${url}`);
-
         fetch(url)
             .then(response => {
-                console.log(`Resposta para ${url}: status ${response.status}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 return response.text();
             })
             .then(html => {
-                console.log(`Exemplo ${i} carregado com sucesso!`);
-                loadedCount++;
-
                 const div = document.createElement("div");
                 div.innerHTML = html;
 
@@ -138,26 +146,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 container.appendChild(div);
+                exemplosCarregados++;
 
-                updateLoadingStatus();
+                // Reprocessa MathJax após o carregamento de cada exemplo
+                // ou quando todos os exemplos forem carregados
+                if (exemplosCarregados === 1 || exemplosCarregados === totalExemplos) {
+                    // Adiciona um pequeno atraso para garantir que o DOM foi atualizado
+                    setTimeout(processarMathJax, 200);
+                }
             })
             .catch(error => {
-                console.error(`Erro ao carregar exemplo ${i} (${url}):`, error);
-                errorCount++;
-                updateLoadingStatus();
+                console.log(`Exemplo ${i} não encontrado ou erro ao carregar:`, error);
             });
     }
-
-    function updateLoadingStatus() {
-        if (loadedCount + errorCount === totalExemplos) {
-            if (loadedCount > 0) {
-                loadingDiv.remove();
-            } else {
-                loadingDiv.textContent = `Não foi possível carregar nenhum exemplo. Verifique o console para detalhes.`;
-                loadingDiv.style.backgroundColor = "#ffdddd";
-            }
-        } else {
-            loadingDiv.textContent = `Carregando exemplos... ${loadedCount} carregados, ${errorCount} erros`;
-        }
-    }
 });
+
+// Adicionar processamento MathJax aos eventos que mostram conteúdo
+const oldToggleResolucao = toggleResolucao;
+toggleResolucao = function(botao) {
+    oldToggleResolucao(botao);
+    setTimeout(processarMathJax, 100);
+};
+
+const oldToggleExemplo = toggleExemplo;
+toggleExemplo = function(titulo) {
+    oldToggleExemplo(titulo);
+    setTimeout(processarMathJax, 100);
+};
