@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 16</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>3º Anos - Física III</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section id="aula10">
+            <h2>Aula 16 - Servo Motores</h2>
+    <h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br//sites//alunos//arquivos_restritos//files//documento//2021-07//aula16_servos_motores_m2.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/vh-rhfyKqaQ" 
+            title="Aula 16 - Servo Motores" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Servo Motores" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+		src="https://sketchfab.com/models/5aa81171a538478abff61cf5dfc86473/embed">
+    </iframe>
+</div>
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Programa: Utilizando servo motor */
+/* Inclui a biblioteca de controle do servo */
+#include &lt;Servo.h&gt;
+/* Cria um objeto para controlar o servo */
+Servo meuservo;
+/* Define o pino de dados do servo */
+int Pino_Servo = 7;
+void setup() {
+/* Endereça o objeto servo ao pino de dados definido */
+meuservo.attach(Pino_Servo);
+}
+void loop() {
+/* Posiciona o servo em 0 graus */
+meuservo.write(0);
+/* Aguarda 1 segundo */
+delay(1000);
+/* Posiciona o servo em 90 graus */
+meuservo.write(90);
+/* Aguarda 1 segundo */
+delay(1000);
+/* Posiciona o servo em 180 graus */
+meuservo.write(180);
+/* Aguarda 1 segundo */
+delay(1000);
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>

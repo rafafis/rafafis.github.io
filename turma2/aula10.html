@@ -4,57 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2º Anos - Física</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- JS -->
-    <script src="scripts.js" defer></script>
-	<link rel="stylesheet" href="prism.css">
-    <!-- KaTeX CSS e JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body);"></script>
+    <title>Aula 10</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
 </head>
 
 <body>
-	<script src="prism.js"></script>
+	<script src="../prism.js"></script>
     <header>
         <h1>Turma 2º Anos - Física</h1>
 		<br>
         <h1>Robótica</h1>
-        <nav>
-            <ul>
-                <!-- menu -->
-                <li><a href="#avisos">Avisos</a></li>
-                <li><a href="#links">Links</a></li>
-                <li><a href="#aulas">Aulas</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
-        <section id="avisos">
-            <h2>Avisos</h2>
-            <ul>
-              <li>25/05/00 - 1° Avaliação de Física</li>
-              <li>25/05/00 - 1° Recuperação de Física</li>
-              <li>25/05/00 - 2° Avaliação de Física</li>
-              <li>25/05/00 - 2° Recuperação de Física</li>
-            </ul>
-        </section>
         <section id="links">
-            <h2>Links</h2>
+            <h2>Links úteis</h2>
             <ul>
               <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
               <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
             </ul>
-        </section>
-
-        <section id="aulas">
-            <h2>Aulas</h2>
-<div class="exemplo">
-  <h3 onclick="toggleExemplo(this)">Aula 10 - Semáforo (Cruzamento Carros)</h3>
-  <div class="conteudo-expansivel">
+		</section>
+        <section id="aula10">
+            <h2>Aula 10 - Semáforo (Cruzamento Carros)</h2>
+    <h4>Roteiro da aula 10</h4>
+        <a class="btn-pdf"
+            href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2021-05/aula_10_semaforo_cruzamento_carros.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
     <div class="video-container">
         <iframe width="560" height="315" 
             src="https://www.youtube.com/embed/8UulzsVqR1k" 
@@ -62,13 +42,7 @@
             frameborder="0" allowfullscreen>
         </iframe>
     </div>
-	<br><p>
-        <a class="btn-pdf"
-            href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2021-05/aula_10_semaforo_cruzamento_carros.pdf"
-            target="_blank">
-            📄 Baixar Manual da Aula (PDF)
-        </a>
-    </p>
+	<br>
 	<div class="modelo-3d">
     <h4>Visualização 3D do Projeto:</h4>
     <iframe title="Semáforo Cruzamento" frameborder="0" allowfullscreen
@@ -80,11 +54,8 @@
     </iframe>
 </div>
 
-
-<!-- Bloco com botão copiar -->
-<div class="code-container">
-  <button class="copy-btn" onclick="copiarCodigo(this)">Copiar código</button>
-    <pre><code class="language-ino">
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
 /* Código de Funcionamento para um Semáforo de Cruzamento */
 /* Define as portas dos LED’s do semáforo 1 */
 #define LED_Vermelho_1 2
@@ -143,19 +114,12 @@ void loop() {
 	digitalWrite(LED_Verde_2, LOW);
 	delay(3000);
 }
-    </code></pre>
-  </div>
-  </div>
-</div>
-
-        </section>
-
-       
-    </main>
-
+</code></pre>
+</section>
+</main>
     <footer>
         <p>&copy; 2025 - Dr. Rafael Silva</p>
-        <p><a href="index.html">Voltar para a página principal</a></p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
     </footer>
 </body>
 
