@@ -1,206 +1,219 @@
-/* Estilo base do corpo do documento */
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-/* Cabeçalho */
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+
 header {
-    background-color: #005c99;
-    color: white;
-    text-align: center;
-    padding: 30px;
+  background-color: #005c99;
+  color: white;
+  text-align: center;
+  padding: 30px;
 }
 
-/* Navegação */
+/* ==========================================================================
+   Navegação
+   ========================================================================== */
+
 nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #007acc;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #007acc;
 }
 
 nav ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  transition: background-color 0.2s ease;
 }
 
 nav ul li a:hover {
-    background-color: #005c99;
+  background-color: #005c99;
 }
 
-a {
-    color: #0066cc;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
+/* ==========================================================================
+   Conteúdo principal
+   ========================================================================== */
 
-/* Conteúdo principal */
-
-/* old main
 main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-*/
-main {
-    max-width: 950px;           /* Reduz largura para leitura confortável */
-    margin: 0 auto;
-    padding: 30px 20px;
-    font-family: Georgia, serif;
-    font-size: 1.125rem;        /* Aproximadamente 18px */
-    line-height: 1.6;
-    color: #2c2c2c;
-    background-color: #fefefe; /* Leve contraste com o body */
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #2c2c2c;
+  background-color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Layout Flexbox */
 main.container,
 main.grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
 }
 
-/* Seções */
+/* ==========================================================================
+   Seções
+   ========================================================================== */
+
 section {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 h2 {
-    border-bottom: 2px solid #005c99;
-    padding-bottom: 5px;
+  border-bottom: 2px solid #005c99;
+  padding-bottom: 5px;
+  color: #005c99;
+  margin-top: 30px;
 }
+
+h4 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* ==========================================================================
+   Resoluções e Exercícios
+   ========================================================================== */
 
 /* Blocos de exemplo e exercício */
 .exemplo,
 .exercicio {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 25px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.exemplo h3 {
-    cursor: pointer;
-    margin-top: 0;
+.exercicio strong {
+  color: #005c99;
+  font-size: 1.1em;
 }
 
-/* Conteúdo expansível */
-.conteudo-expansivel,
+/* Resolução de exercícios */
 .resolucao-expansivel {
-    display: none; 
-    margin-top: 10px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+  margin-top: 15px;
+  background-color: #f5f8fa;
+  border-left: 4px solid #007acc;
+  border-radius: 0 6px 6px 0;
 }
-/*
-.expandido {
-    display: block;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 4px;
-}
-*/
-.conteudo-expansivel.expandido,
+
 .resolucao-expansivel.expandido {
-    display: block;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 4px;
+  max-height: 2000px; /* Valor suficientemente grande */
+  opacity: 1;
+  padding: 15px 20px;
+  margin-bottom: 20px;
 }
 
-
-/* Listas */
-ul {
-    list-style-type: none;
-    padding-left: 0;
+.resolucao-expansivel p:first-of-type {
+  font-weight: bold;
+  color: #005c99;
+  font-size: 1.1em;
+  margin-top: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-li {
-    margin: 8px 0;
+.resolucao-expansivel img {
+  display: block;
+  margin: 15px auto;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Botões */
+/* Equações matemáticas dentro das resoluções */
+.resolucao-expansivel .MathJax {
+  margin: 10px 0;
+}
+
+/* Conteúdo expansível (geral) */
+.conteudo-expansivel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  padding: 0 10px;
+  border-radius: 4px;
+}
+
+.conteudo-expansivel.expandido {
+  max-height: 1000px;
+  opacity: 1;
+  padding: 10px;
+}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+
 button {
-    background-color: #007acc;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-top: 10px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 15px 0;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-    background-color: #005c99;
+  background-color: #005c99;
+  transform: translateY(-2px);
 }
 
-/* Resultado */
-.resultado {
-    font-weight: bold;
-    margin-top: 10px;
+button:active {
+  transform: translateY(0);
 }
 
-/* Cards */
-.turma-card,
-.colégio {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    width: 200px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.turma-card:hover,
-.colégio:hover {
-    transform: translateY(-5px);
-}
-
-.turma-card a,
-.colégio a {
-    text-decoration: none;
-    color: #005c99;
-}
-
-.colégio img {
-    max-width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-/* Espaço reservado vazio */
-.empty {
-    visibility: hidden;
-}
-
-/* Grid layout para as turmas */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    justify-items: center;
-}
-
-/* botão de copiar */
 .copy-btn {
   background-color: #4CAF50;
   color: white;
@@ -210,20 +223,110 @@ button:hover {
   cursor: pointer;
   margin-bottom: 5px;
   border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
+
 .copy-btn:hover {
   background-color: #45a049;
 }
 
-/* Rodapé */
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.turma-card,
+.colégio {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.turma-card:hover,
+.colégio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.turma-card a,
+.colégio a {
+  text-decoration: none;
+  color: #005c99;
+  font-weight: bold;
+}
+
+.colégio img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   Layout Grid
+   ========================================================================== */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.empty {
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
 footer {
-    background-color: #005c99;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
+  background-color: #005c99;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
 }
 
 footer a {
-    color: white;
+  color: white;
+  transition: opacity 0.2s ease;
+}
+
+footer a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  main {
+    padding: 20px 15px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resolucao-expansivel.expandido {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
 }

@@ -8,18 +8,6 @@
 	<link rel="stylesheet" href="../style.css">
 	<!-- JS -->
 	<script src="../scripts.js" defer></script>
-	<!-- Scripts do MathJax -->
-	<script id="MathJax-script" async
-		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-	</script>
-
-	<!--https://jsbin.com/?html,output -->
-    <!-- KaTeX CSS e JS 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body);"></script>
-	-->
 </head>
 
 <body>
@@ -30,7 +18,6 @@
                 <li><a href="#avisos">Avisos</a></li>
                 <li><a href="#downloads">Downloads</a></li>
                 <li><a href="#exemplos">Exemplos</a></li>
-                <li><a href="#exercicios">Exercícios</a></li>
             </ul>
         </nav>
     </header>
@@ -47,38 +34,12 @@
             <h2>Downloads</h2>
             <ul><li><a href="pdfs/forcaeletrica.pdf" target="_blank">Aula N5: Força Elétrica</a></li></ul>
             <ul><li><a href="pdfs/campoeletrico.pdf" target="_blank">Aula N6: Campo Elétrico</a></li></ul>
+            <ul><li><a href="pdfs/resistenciaii.pdf" target="_blank">Aula 15: Resistência</a></li></ul>
         </section>
 
-		<section id="exemplos">
-			<h2>Exemplos</h2>
-			<div id="container-exemplos"></div>
-		</section>
-
-
-        <section id="exercicios">
-            <h2>Exercícios</h2>
-            <div class="exercicio" id="ex1">
-                <p>Em breve</p>
-                <form>
-                    <ul>
-                        <li><input type="radio" name="resposta" value="a"> 1h 30min</li>
-                        <li><input type="radio" name="resposta" value="b"> 1h 40min</li>
-                        <li><input type="radio" name="resposta" value="c"> 1h 45min</li>
-                        <li><input type="radio" name="resposta" value="d"> 1h 50min</li>
-                    </ul>
-                    <button type="button" onclick="verificarResposta(this)">Verificar resposta</button>
-                    <p class="resultado"></p>
-                    <button type="button" onclick="toggleResolucao(this)">Ver resolução</button>
-                    <div class="resolucao-expansivel">
-                        <p><strong>Resolução:</strong></p>
-                        <p>Para calcular o tempo, usamos a fórmula:</p>
-                        \[\text{Tempo} = \frac{\text{Distância}}{\text{Velocidade}}\]
-                        \[\text{Tempo} = \frac{110 \text{ km}}{60 \text{ km/h}} = 1,83 \text{ h}\]
-                        <p>Convertendo para horas e minutos:</p>
-                        <p>1 hora + 0,83 × 60 minutos = 1 hora + 50 minutos = 1h 50min</p>
-                    </div>
-                </form>
-            </div>
+        <section id="aulas">
+            <h2>Aulas</h2>
+              <li><a href="./aula05.html">Aula N5: Força Elétrica</a></li>
         </section>
     </main>
 
@@ -87,5 +48,4 @@
         <p><a href="../index.html">Voltar para a página principal</a></p>
     </footer>
 </body>
-
 </html>

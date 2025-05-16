@@ -23,7 +23,6 @@
                 <li><a href="#avisos">Avisos</a></li>
                 <li><a href="#downloads">Downloads</a></li>
                 <li><a href="#exemplos">Exemplos</a></li>
-                <li><a href="#exercicios">Exercícios</a></li>
             </ul>
         </nav>
     </header>
@@ -42,50 +41,15 @@
         <section id="downloads">
             <h2>Downloads</h2>
             <ul><li><a href="pdfs/movimentouniforme.pdf" target="_blank">Aula N7: Movimento Uniforme</a></li></ul>
+            <ul><li><a href="pdfs/muv.pdf" target="_blank">Aula 15: Movimento Variado</a></li></ul>
+            <ul><li><p>Aula 16: Frenage (não)</p></li></ul>
+            <ul><li><a href="pdfs/quedalivre.pdf" target="_blank">Aula 17: Queda Livre</a></li></ul>
+        </section>
+        <section id="aulas">
+            <h2>Aulas</h2>
+              <li><a href="./aula15.html">Aula 15: Movimento Variado</a></li>
         </section>
 
-        <section id="exemplos">
-            <h2>Exemplos</h2>
-            <div class="exemplo">
-                <h3 onclick="toggleExemplo(this)">Aula 01</h3>
-                <div class="conteudo-expansivel">
-                    <p><strong>Questão 01:</strong> Um carro percorre 90 km em 1h30min. Qual é a velocidade média?</p>
-                    <button onclick="toggleResolucao(this)">Ver resolução</button>
-                    <div class="resolucao-expansivel">
-                        <p><strong>Resolução:</strong></p>
-                        \[\text{Tempo} = 1{,}5\ \text{h} \]
-                        \[ \text{Velocidade média} = v_m \]
-                        \[ v_m = \frac{\Delta S}{\Delta t} \]
-                        \[ v_m = \frac{90}{1,5} = 60\ \text{km/h}\]
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="exercicios">
-            <h2>Exercícios</h2>
-            <div class="exercicio" id="ex1">
-                <p>Quanto tempo levará para percorrer 110 km a uma velocidade constante de 60 km/h?</p>
-                <form>
-                    <ul>
-                        <li><input type="radio" name="resposta" value="a"> 1h 30min</li>
-                        <li><input type="radio" name="resposta" value="b"> 1h 40min</li>
-                        <li><input type="radio" name="resposta" value="c"> 1h 45min</li>
-                        <li><input type="radio" name="resposta" value="d"> 1h 50min</li>
-                    </ul>
-                    <button type="button" onclick="verificarResposta(this)">Verificar resposta</button>
-                    <p class="resultado"></p>
-                    <button type="button" onclick="toggleResolucao(this)">Ver resolução</button>
-                    <div class="resolucao-expansivel">
-                        <p><strong>Resolução:</strong></p>
-                        <p>Para calcular o tempo, usamos a fórmula:</p>
-                        \[\text{Tempo} = \frac{\text{Distância}}{\text{Velocidade}}\]
-                        \[\text{Tempo} = \frac{110 \text{ km}}{60 \text{ km/h}} = 1,83 \text{ h}\]
-                        <p>Convertendo para horas e minutos:</p>
-                        <p>1 hora + 0,83 × 60 minutos = 1 hora + 50 minutos = 1h 50min</p>
-                    </div>
-                </form>
-            </div>
-        </section>
     </main>
 
     <footer>
