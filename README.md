@@ -25,8 +25,11 @@
 
 [Aula 16](https://docs.google.com/presentation/d/12D-nMwL2WcSRey5aoeIXgwsD6nyOq03H-6QgnyRPgYc/edit?usp=sharing)
 
-[]()
+[Aula 17](https://docs.google.com/presentation/d/1EbmsRL5xO-8nrUwLYKPVxWzKMafE6ueu85ujGfkfajU/edit?usp=sharing)
 
+[Aula 18](https://docs.google.com/presentation/d/1sxpYihpn2nasAY6T4hB8aQR0D5X017D1DczudS-5KTE/edit?usp=sharing)
+
+[]()
 # 3 Energia
 
 [Máquinas](https://docs.google.com/presentation/d/1XgzGknkzrhTfHpXk54HGAfHNxpqo5i06-cFlGeEHuqo/edit?usp=sharing)
