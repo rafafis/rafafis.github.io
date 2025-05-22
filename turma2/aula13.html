@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 13</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section id="aula10">
+            <h2>Aula 13 - Push button</h2>
+    		<h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+            href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2023-04/aula13_push_button_em_m1v3.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/K-xqExLey5o" 
+            title="Aula 13 - Push button" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Push button" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+        src="https://sketchfab.com/models/f1e3822bfbb4417e9074f29338f3694a/embed">
+    </iframe>
+</div>
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/*
+  Programa de acionamento do LED através do botão (Push Button).
+  Pressionar o botão alterna o estado do LED (liga/desliga).
+*/
+
+#define PINO_BOTAO 10   // Define o pino do botão
+#define PINO_LED 8      // Define o pino do LED
+
+bool estadoLED = LOW;       // Estado atual do LED (ligado = HIGH, desligado = LOW)
+bool estadoBotaoAtual;      // Estado atual do botão
+bool estadoBotaoAnterior = LOW;  // Estado anterior do botão (para detectar mudança)
+
+void setup() {
+  pinMode(PINO_LED, OUTPUT);      // Configura o pino do LED como saída
+  pinMode(PINO_BOTAO, INPUT);     // Configura o pino do botão como entrada
+}
+
+void loop() {
+  // Lê o estado atual do botão
+  estadoBotaoAtual = digitalRead(PINO_BOTAO);
+
+  // Verifica se o botão foi pressionado (mudança de LOW para HIGH)
+  if (estadoBotaoAtual == HIGH && estadoBotaoAnterior == LOW) {
+    estadoLED = !estadoLED;                       // Inverte o estado do LED
+    digitalWrite(PINO_LED, estadoLED);           // Atualiza o estado do LED
+    delay(50);                                    // Debounce: evita leituras múltiplas
+  }
+
+  // Atualiza o estado anterior do botão
+  estadoBotaoAnterior = estadoBotaoAtual;
+}
+
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>

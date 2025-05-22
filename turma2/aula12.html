@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section id="aula12">
+            <h2>Aula 12 - Semáforo (cruzamento carros + pedestres)</h2>
+    		<h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+            href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2023-08/aula12_modulo_semaforo_cruzamento_carros_pedestres_kit2023_em_m1.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/7Kwm-rXZUJQ" 
+            title="Aula 12 - Semáforo (cruzamento carros + pedestres)" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/*
+  Semáforo de cruzamento com pedestres
+  Define as portas de todos os LEDs
+*/
+
+// Definições dos LEDs - Semáforo 1
+#define LED_CARRO_VERDE_1        13
+#define LED_CARRO_AMARELO_1      12
+#define LED_CARRO_VERMELHO_1     11
+#define LED_PEDESTRE_VERDE_1     10
+#define LED_PEDESTRE_VERMELHO_1  9
+
+// Definições dos LEDs - Semáforo 2
+#define LED_CARRO_VERDE_2        6
+#define LED_CARRO_AMARELO_2      5
+#define LED_CARRO_VERMELHO_2     4
+#define LED_PEDESTRE_VERDE_2     3
+#define LED_PEDESTRE_VERMELHO_2  2
+
+// Pino GND extra
+#define GND_2 7
+
+void setup() {
+  // Define todos os pinos como saída
+  pinMode(LED_CARRO_VERDE_1, OUTPUT);
+  pinMode(LED_CARRO_AMARELO_1, OUTPUT);
+  pinMode(LED_CARRO_VERMELHO_1, OUTPUT);
+  pinMode(LED_PEDESTRE_VERDE_1, OUTPUT);
+  pinMode(LED_PEDESTRE_VERMELHO_1, OUTPUT);
+
+  pinMode(LED_CARRO_VERDE_2, OUTPUT);
+  pinMode(LED_CARRO_AMARELO_2, OUTPUT);
+  pinMode(LED_CARRO_VERMELHO_2, OUTPUT);
+  pinMode(LED_PEDESTRE_VERDE_2, OUTPUT);
+  pinMode(LED_PEDESTRE_VERMELHO_2, OUTPUT);
+
+  pinMode(GND_2, OUTPUT);
+  digitalWrite(GND_2, LOW);
+}
+
+void piscarLED(int pino, int vezes, int intervalo = 500) {
+  for (int i = 0; i < vezes; i++) {
+    digitalWrite(pino, HIGH);
+    delay(intervalo);
+    digitalWrite(pino, LOW);
+    delay(intervalo);
+  }
+}
+
+void apagarTodosLEDs() {
+  int leds[] = {
+    LED_CARRO_VERDE_1, LED_CARRO_AMARELO_1, LED_CARRO_VERMELHO_1,
+    LED_PEDESTRE_VERDE_1, LED_PEDESTRE_VERMELHO_1,
+    LED_CARRO_VERDE_2, LED_CARRO_AMARELO_2, LED_CARRO_VERMELHO_2,
+    LED_PEDESTRE_VERDE_2, LED_PEDESTRE_VERMELHO_2
+  };
+
+  for (int i = 0; i < sizeof(leds) / sizeof(leds[0]); i++) {
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+void loop() {
+  // Apaga todos os LEDs no início do ciclo
+  apagarTodosLEDs();
+
+  // Estágio 1 - 5 segundos
+  digitalWrite(LED_CARRO_VERDE_1, HIGH);
+  digitalWrite(LED_PEDESTRE_VERMELHO_1, HIGH);
+  digitalWrite(LED_CARRO_VERMELHO_2, HIGH);
+  digitalWrite(LED_PEDESTRE_VERDE_2, HIGH);
+  delay(5000);
+
+  // Estágio 2 - 3 segundos
+  digitalWrite(LED_CARRO_VERDE_1, LOW);
+  digitalWrite(LED_CARRO_AMARELO_1, HIGH);
+  digitalWrite(LED_PEDESTRE_VERDE_2, LOW);
+  piscarLED(LED_PEDESTRE_VERMELHO_2, 3);
+
+  // Estágio 3 - 5 segundos
+  digitalWrite(LED_CARRO_AMARELO_1, LOW);
+  digitalWrite(LED_CARRO_VERMELHO_1, HIGH);
+  digitalWrite(LED_PEDESTRE_VERDE_1, HIGH);
+  digitalWrite(LED_PEDESTRE_VERMELHO_1, LOW);
+
+  digitalWrite(LED_CARRO_VERMELHO_2, LOW);
+  digitalWrite(LED_CARRO_VERDE_2, HIGH);
+  digitalWrite(LED_PEDESTRE_VERMELHO_2, HIGH);
+  delay(5000);
+
+  // Estágio 4 - 3 segundos
+  digitalWrite(LED_PEDESTRE_VERDE_1, LOW);
+  digitalWrite(LED_CARRO_VERDE_2, LOW);
+  digitalWrite(LED_CARRO_AMARELO_2, HIGH);
+  piscarLED(LED_PEDESTRE_VERMELHO_1, 3);
+}
+
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
