@@ -8,10 +8,18 @@
 
 [Aula 18](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
 
-[]()
+[Aula 19](https://docs.google.com/presentation/d/1xxsQxkgAfAof-QedEZG7ZUca9L8LlUONOiHy007eekI/edit?usp=sharing)
+
+[Aula ]()
 
 
+[Aula ]()
 
+
+[Aula ]()
+
+
+[Aula ]()
 # 3 Eletro
 
 [N5 - Força](https://docs.google.com/presentation/d/1j_j56yfSHZWs39_3gbV6E9cFHpRIxwEeOSVXC9t3Uk0/edit?usp=sharing)
