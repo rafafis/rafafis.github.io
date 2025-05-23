@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 18</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>3º Anos - Física III</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section id="aula18">
+            <h2>Aula 18 - Controlando servomotores</h2>
+    <h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br//sites//alunos//arquivos_restritos//files//documento//2021-09//aula18_controlando_servos_motores_m2.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/H5iTzAB98Oc" 
+            title="Aula 18 - Controlando servomotores" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Controlando servomotores" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+		src="https://sketchfab.com/models/f74e1d9820bb439591fffb57fbc0e7df/embed">
+    </iframe>
+</div>
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+// Controlando servos motores na placa Sensor Shield
+
+// Inclui a biblioteca de controle de servo
+#include &lt;Servo.h&gt;
+
+// Criação dos objetos Servo
+Servo servo1;
+Servo servo2;
+Servo servo3;
+Servo servo4;
+
+// Pinos dos servos
+const int Pino_Servo1 = 5;
+const int Pino_Servo2 = 9;
+const int Pino_Servo3 = 12;
+const int Pino_Servo4 = 13;
+
+// Pino do potenciômetro
+const int Pot = A3;
+
+// Pino do botão
+const int Pino_Botao = 2;
+
+// Variável de seleção do servo
+volatile int seletor = 1;
+
+// Controle de debounce
+unsigned long ultimaInterrupcao = 0;
+
+void setup() {
+  // Conecta os servos aos pinos
+  servo1.attach(Pino_Servo1);
+  servo2.attach(Pino_Servo2);
+  servo3.attach(Pino_Servo3);
+  servo4.attach(Pino_Servo4);
+
+  // Configura o botão com resistor pull-up interno
+  pinMode(Pino_Botao, INPUT_PULLUP);
+
+  // Configura a interrupção no botão
+  attachInterrupt(digitalPinToInterrupt(Pino_Botao), seleciona, FALLING);
+}
+
+void loop() {
+  int valor = map(analogRead(Pot), 0, 1023, 0, 180);
+
+  switch (seletor) {
+    case 1:
+      servo1.write(valor);
+      break;
+    case 2:
+      servo2.write(valor);
+      break;
+    case 3:
+      servo3.write(valor);
+      break;
+    case 4:
+      servo4.write(valor);
+      break;
+  }
+
+  delay(15); // Pequeno delay para estabilidade da leitura
+}
+
+// Função de interrupção para trocar o servo ativo
+void seleciona() {
+  unsigned long tempoAtual = millis();
+
+  // Debounce simples: só permite mudança se 200ms já se passaram
+  if (tempoAtual - ultimaInterrupcao > 200) {
+    seletor++;
+    if (seletor > 4) {
+      seletor = 1;
+    }
+    ultimaInterrupcao = tempoAtual;
+  }
+}
+
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
