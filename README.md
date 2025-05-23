@@ -6,7 +6,8 @@
 
 [Aula 17](https://docs.google.com/presentation/d/14zUYM6FeZd9aPtN2rqANZ9A3uwfvxCRryg8i1k-969c/edit?usp=sharing)
 
-[]()
+[Aula 18](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
+
 []()
 
 
