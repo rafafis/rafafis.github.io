@@ -18,8 +18,6 @@
 
 [Aula ]()
 
-
-[Aula ]()
 # 3 Eletro
 
 [N5 - Força](https://docs.google.com/presentation/d/1j_j56yfSHZWs39_3gbV6E9cFHpRIxwEeOSVXC9t3Uk0/edit?usp=sharing)
@@ -38,7 +36,10 @@
 
 [Aula 18](https://docs.google.com/presentation/d/1sxpYihpn2nasAY6T4hB8aQR0D5X017D1DczudS-5KTE/edit?usp=sharing)
 
-[]()
+[Aula 19](https://docs.google.com/presentation/d/11WUMg9gEo_ekXuBL2cIma2xWQrDEHw9yNHBi1OTx120/edit?usp=sharing)
+
+[Aula ]()
+
 # 3 Energia
 
 [Máquinas](https://docs.google.com/presentation/d/1XgzGknkzrhTfHpXk54HGAfHNxpqo5i06-cFlGeEHuqo/edit?usp=sharing)
