@@ -1,20 +1,20 @@
 # 1
 
-[A15: ](https://docs.google.com/presentation/d/1jOS24RGCD_bjNcl5pe-nFO-AdVQrfOcAus9dxizc4Ks/edit?usp=sharing)
+[A15: Movimento Variado](https://docs.google.com/presentation/d/1jOS24RGCD_bjNcl5pe-nFO-AdVQrfOcAus9dxizc4Ks/edit?usp=sharing)
 
-[A16: ](https://docs.google.com/presentation/d/1rgbOTWuSTNgwznIbGRerAUT938NCf_AQ7jyxZfY7oq4/edit?usp=sharing)
+[A16: Frenagem](https://docs.google.com/presentation/d/1rgbOTWuSTNgwznIbGRerAUT938NCf_AQ7jyxZfY7oq4/edit?usp=sharing)
 
-[A17: ](https://docs.google.com/presentation/d/14zUYM6FeZd9aPtN2rqANZ9A3uwfvxCRryg8i1k-969c/edit?usp=sharing)
+[A17: Queda Livre](https://docs.google.com/presentation/d/14zUYM6FeZd9aPtN2rqANZ9A3uwfvxCRryg8i1k-969c/edit?usp=sharing)
 
-[A18: ](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
+A18: Plano Inclinado 
 
-[A19: ](https://docs.google.com/presentation/d/1xxsQxkgAfAof-QedEZG7ZUca9L8LlUONOiHy007eekI/edit?usp=sharing)
+[A19: Tipos de Força I](https://docs.google.com/presentation/d/1xxsQxkgAfAof-QedEZG7ZUca9L8LlUONOiHy007eekI/edit?usp=sharing)
 
-[A20: ]()
+[A20: Tipos de Força II](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
 
-[A20: ]()
+[A21: ]()
 
-[A20: ]()
+[A22: ]()
 
 # 3 Eletro
 
