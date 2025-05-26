@@ -1,44 +1,44 @@
 # 1
 
-[Aula 15](https://docs.google.com/presentation/d/1jOS24RGCD_bjNcl5pe-nFO-AdVQrfOcAus9dxizc4Ks/edit?usp=sharing)
+[A15: ](https://docs.google.com/presentation/d/1jOS24RGCD_bjNcl5pe-nFO-AdVQrfOcAus9dxizc4Ks/edit?usp=sharing)
 
-[Aula 16](https://docs.google.com/presentation/d/1rgbOTWuSTNgwznIbGRerAUT938NCf_AQ7jyxZfY7oq4/edit?usp=sharing)
+[A16: ](https://docs.google.com/presentation/d/1rgbOTWuSTNgwznIbGRerAUT938NCf_AQ7jyxZfY7oq4/edit?usp=sharing)
 
-[Aula 17](https://docs.google.com/presentation/d/14zUYM6FeZd9aPtN2rqANZ9A3uwfvxCRryg8i1k-969c/edit?usp=sharing)
+[A17: ](https://docs.google.com/presentation/d/14zUYM6FeZd9aPtN2rqANZ9A3uwfvxCRryg8i1k-969c/edit?usp=sharing)
 
-[Aula 18](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
+[A18: ](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
 
-[Aula 19](https://docs.google.com/presentation/d/1xxsQxkgAfAof-QedEZG7ZUca9L8LlUONOiHy007eekI/edit?usp=sharing)
+[A19: ](https://docs.google.com/presentation/d/1xxsQxkgAfAof-QedEZG7ZUca9L8LlUONOiHy007eekI/edit?usp=sharing)
 
-[Aula ]()
+[A20: ]()
 
+[A20: ]()
 
-[Aula ]()
-
-
-[Aula ]()
+[A20: ]()
 
 # 3 Eletro
 
-[N5 - Força](https://docs.google.com/presentation/d/1j_j56yfSHZWs39_3gbV6E9cFHpRIxwEeOSVXC9t3Uk0/edit?usp=sharing)
+[N5: Força](https://docs.google.com/presentation/d/1j_j56yfSHZWs39_3gbV6E9cFHpRIxwEeOSVXC9t3Uk0/edit?usp=sharing)
 
-[N6 - Campo](https://docs.google.com/presentation/d/15r3-1qaySEjlTbuc_HWg0GMS3yT3GwRPg3tFT7QuFeE/edit?usp=sharing)
+[N6: Campo](https://docs.google.com/presentation/d/15r3-1qaySEjlTbuc_HWg0GMS3yT3GwRPg3tFT7QuFeE/edit?usp=sharing)
 
-[N7 - DDP](https://docs.google.com/presentation/d/1kGur8oD9VIvmg96qNxzXA_ReRuTioapRwcb7oIo_2fI/edit?usp=sharing)
+[N7: DDP](https://docs.google.com/presentation/d/1kGur8oD9VIvmg96qNxzXA_ReRuTioapRwcb7oIo_2fI/edit?usp=sharing)
 
-[N8 - Condutores e Isolantes](https://docs.google.com/presentation/d/1X7qkhyrnClFVJ_1CCmnfnWRmx7FrmOOfs-IT7hI_cvI/edit?usp=sharing)
+[N8: Condutores e Isolantes](https://docs.google.com/presentation/d/1X7qkhyrnClFVJ_1CCmnfnWRmx7FrmOOfs-IT7hI_cvI/edit?usp=sharing)
 
-[Aula 15](https://docs.google.com/presentation/d/1ijStVdf3D6r402w9bOcdR4mOJoXldvWtfMyQza6oirU/edit?usp=sharing)
+[A15: Resistência Elétrica I](https://docs.google.com/presentation/d/1ijStVdf3D6r402w9bOcdR4mOJoXldvWtfMyQza6oirU/edit?usp=sharing)
 
-[Aula 16](https://docs.google.com/presentation/d/12D-nMwL2WcSRey5aoeIXgwsD6nyOq03H-6QgnyRPgYc/edit?usp=sharing)
+[A16: Corrente Elétrica](https://docs.google.com/presentation/d/12D-nMwL2WcSRey5aoeIXgwsD6nyOq03H-6QgnyRPgYc/edit?usp=sharing)
 
-[Aula 17](https://docs.google.com/presentation/d/1EbmsRL5xO-8nrUwLYKPVxWzKMafE6ueu85ujGfkfajU/edit?usp=sharing)
+[A17: Circuito Elétrico I](https://docs.google.com/presentation/d/1EbmsRL5xO-8nrUwLYKPVxWzKMafE6ueu85ujGfkfajU/edit?usp=sharing)
 
-[Aula 18](https://docs.google.com/presentation/d/1sxpYihpn2nasAY6T4hB8aQR0D5X017D1DczudS-5KTE/edit?usp=sharing)
+[A17: Circuito Elétrico II](https://docs.google.com/presentation/d/1sxpYihpn2nasAY6T4hB8aQR0D5X017D1DczudS-5KTE/edit?usp=sharing)
 
-[Aula 19](https://docs.google.com/presentation/d/11WUMg9gEo_ekXuBL2cIma2xWQrDEHw9yNHBi1OTx120/edit?usp=sharing)
+[A19: Ass. Resis Série I](https://docs.google.com/presentation/d/11WUMg9gEo_ekXuBL2cIma2xWQrDEHw9yNHBi1OTx120/edit?usp=sharing)
 
-[Aula ]()
+[A20: Ass. Resis Série II](https://docs.google.com/presentation/d/1ZQmA1mkjPMcT4kPDykr_yaRF51MINccGF5CQTyB1q8g/edit?usp=sharing)
+
+[A21: ]()
 
 # 3 Energia
 
