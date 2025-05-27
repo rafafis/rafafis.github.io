@@ -46,3 +46,4 @@ A18: Plano Inclinado
 
 [Introdução ao Eletromagnetismo](https://docs.google.com/presentation/d/1Fg-LwcNZI-wdmQKQV6BMm89hYWxEouTtvSJJeURsMog/edit?usp=sharing)
 
+[Magnetismo](https://docs.google.com/presentation/d/1QkLNlwxgehgdXlprGVChOkmfeYxrQMiFnNiyEQUfhxY/edit?usp=sharing)
