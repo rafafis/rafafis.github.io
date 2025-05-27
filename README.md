@@ -12,9 +12,9 @@ A18: Plano Inclinado
 
 [A20: Tipos de Força II](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
 
-[A21: ]()
+[A22: Inércia e 1° lei de Newton](https://docs.google.com/presentation/d/1S9fXkzfx24CDND13mU2f_sAxFlkHp-FfO8KMiASweMQ/edit?usp=sharing)
 
-[A22: ]()
+[A21: ]()
 
 # 3 Eletro
 
