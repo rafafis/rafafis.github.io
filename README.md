@@ -12,6 +12,8 @@ A18: Plano Inclinado
 
 [A20: Tipos de Força II](https://docs.google.com/presentation/d/1ie4XS-1-SkuBL_LWPHG9JPWsE6r_iiZ17sB_oQv0I_o/edit?usp=sharing)
 
+[A21: Momentum](https://docs.google.com/presentation/d/1bvzC9TQi34M_yqD4Ni5R2tbgz36SI5NrvxKDRDfjz3k/edit?usp=sharing)
+
 [A22: Inércia e 1° lei de Newton](https://docs.google.com/presentation/d/1S9fXkzfx24CDND13mU2f_sAxFlkHp-FfO8KMiASweMQ/edit?usp=sharing)
 
 [A23: Impulso e 2° lei de Newton](https://docs.google.com/presentation/d/1bpR0T6FPbtCCUmhlpkH_WaMrukMKA9CCu9ST2_1dEng/edit?usp=sharing)
