@@ -40,7 +40,7 @@ A18: Plano Inclinado
 
 [A20: Ass. Resis Série II](https://docs.google.com/presentation/d/1ZQmA1mkjPMcT4kPDykr_yaRF51MINccGF5CQTyB1q8g/edit?usp=sharing)
 
-[A21: ]()
+[A21: Ass. Resis Paralelo I](https://docs.google.com/presentation/d/1zLn3QytruXoMjfaAeIfsFfUppHRugtqRWsekkN8UvAU/edit?usp=sharing)
 
 # 3 Energia
 
