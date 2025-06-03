@@ -36,11 +36,18 @@ A18: Plano Inclinado
 
 [A17: Circuito Elétrico II](https://docs.google.com/presentation/d/1sxpYihpn2nasAY6T4hB8aQR0D5X017D1DczudS-5KTE/edit?usp=sharing)
 
-[A19: Ass. Resis Série I](https://docs.google.com/presentation/d/11WUMg9gEo_ekXuBL2cIma2xWQrDEHw9yNHBi1OTx120/edit?usp=sharing)
+[A19: Ass. Resis. Série I](https://docs.google.com/presentation/d/11WUMg9gEo_ekXuBL2cIma2xWQrDEHw9yNHBi1OTx120/edit?usp=sharing)
 
-[A20: Ass. Resis Série II](https://docs.google.com/presentation/d/1ZQmA1mkjPMcT4kPDykr_yaRF51MINccGF5CQTyB1q8g/edit?usp=sharing)
+[A20: Ass. Resis. Série II](https://docs.google.com/presentation/d/1ZQmA1mkjPMcT4kPDykr_yaRF51MINccGF5CQTyB1q8g/edit?usp=sharing)
 
-[A21: Ass. Resis Paralelo I](https://docs.google.com/presentation/d/1zLn3QytruXoMjfaAeIfsFfUppHRugtqRWsekkN8UvAU/edit?usp=sharing)
+[A21: Ass. Resis. Paralelo I](https://docs.google.com/presentation/d/1zLn3QytruXoMjfaAeIfsFfUppHRugtqRWsekkN8UvAU/edit?usp=sharing)
+
+[A22: Ass. Resis. Paralelo II](https://docs.google.com/presentation/d/1vxj0XyZJYq--hbNO_QjxxdoGhV64reXlKqkcv2x7-JU/edit?usp=sharing)
+
+[A23: Ass. Resis. Misto I]()
+
+[A24: Ass. Resis. Misto II]()
+
 
 # 3 Energia
 
