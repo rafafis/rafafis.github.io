@@ -16,7 +16,9 @@ A18: Plano Inclinado
 
 [A22: Inércia e 1° lei de Newton](https://docs.google.com/presentation/d/1S9fXkzfx24CDND13mU2f_sAxFlkHp-FfO8KMiASweMQ/edit?usp=sharing)
 
-[A23: Impulso e 2° lei de Newton](https://docs.google.com/presentation/d/1bpR0T6FPbtCCUmhlpkH_WaMrukMKA9CCu9ST2_1dEng/edit?usp=sharing)
+[A23: Impulso](https://docs.google.com/presentation/d/1bpR0T6FPbtCCUmhlpkH_WaMrukMKA9CCu9ST2_1dEng/edit?usp=sharing)
+
+[A24: 2° lei de Newton](https://docs.google.com/presentation/d/1I_vAN8Qlp_3EhwySyhqWGoiqdehxh7O_EMlJ2UHQceo/edit?usp=sharing)
 
 # 3 Eletro
 
