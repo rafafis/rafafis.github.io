@@ -46,7 +46,7 @@ A18: Plano Inclinado
 
 [A22: Ass. Resis. Paralelo II](https://docs.google.com/presentation/d/1vxj0XyZJYq--hbNO_QjxxdoGhV64reXlKqkcv2x7-JU/edit?usp=sharing)
 
-[A23: Ass. Resis. Misto I]()
+[A23: Ass. Resis. Misto I](https://docs.google.com/presentation/d/1JJtS7yMxpIi7gkmHEtZMPC8Oj37wXm5CmQkBY8Qm7ew/edit?usp=sharing)
 
 [A24: Ass. Resis. Misto II]()
 
