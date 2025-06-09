@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>3º Anos - Física I</title>
+	<link rel="stylesheet" href="../style.css">
+	<!-- JS -->
+	<script src="../scripts.js" defer></script>
+	<!-- Scripts do MathJax -->
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+</head>
+
+<body>
+    <header>
+        <h1>3º Anos</h1>
+		<br>
+        <h1>Física I</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Aula 20: Associação de Resistores (Série) II</h2>
+			<h4>Exercícios Resolvidos</h4>
+<!--
+	https://exercicios.mundoeducacao.uol.com.br/exercicios-fisica/exercicios-sobre-associacao-de-resistores-em-serie.htm
+-->
+<div class="exercicio">
+<p><strong>01:</strong>
+Se a d.d.p. (\(U\)) for 4 V, calcule a resistência elétrica equivalente da
+associação em série e a corrente elétrica (\(i\)) do circuito a seguir:
+</p>
+<p>
+	<img src="https://static.mundoeducacao.uol.com.br/exercicios/2023/10/1-associacao-resistores-serie-questao.PNG"
+	alt="figura se não aparecer, se ferrou!" width="375" >
+</p>
+<button onclick="toggleResolucao(this)">Ver resolução</button>
+<div class="resolucao-expansivel">
+<p>Resolução</p>
+<p>\( R_{eq} = 40 \, \Omega \, \text{e } i = 0,1 \, \text{A}\)</p>
+<p>Calcularemos a resistência elétrica equivalente da associação de resistores
+em série através da soma de todas as resistências elétricas:
+</p>
+<p>\( R_{eq} = R_1+R_2+R_3\)</p>
+<p>\( R_{eq} = 10 + 12,5 + 17,5 = 40\, \Omega\)</p>
+<p>Pela 1° lei de Ohm:</p>
+<p>\( U = R_{eq}\cdot i\)</p>
+<p>\( i = \frac{U}{R_{eq}} = \frac{4}{40} = 0,1 \, \text{A}\)</p>
+</div>
+</div>
+<!--
+	fonte
+-->
+<div class="exercicio">
+<p><strong>02:</strong>
+Considere um circuito elétrico contendo três resistores associados em série, de
+resistência elétrica 2 \(\Omega\), 5 \(\Omega\) e 7 \(\Omega\). Calcule a corrente elétrica
+\(i\) que os atravessa quando eles são conectados a uma bateria de 70 V.
+</p>
+<button onclick="toggleResolucao(this)">Ver resolução</button>
+<div class="resolucao-expansivel">
+<p>Resolução</p>
+<p>\(i = 5 \,\text{A}\)</p>
+<p>
+Primeiramente, calcularemos a resistência elétrica equivalente da associação de
+resistores em série através da soma de todas as resistências elétricas:
+</p>
+<p>\( R_{eq} = R_1+R_2+R_3\)</p>
+<p>\( R_{eq} = 2+5+7\)</p>
+<p>\( R_{eq} = 14 \, \Omega \)</p>
+<p>Por fim, calcularemos a corrente elétrica que atravessa os resistores através
+da fórmula da primeira lei de Ohm:</p>
+<p>\( U = R_{eq}\cdot i\)</p>
+<p>\( i = \frac{U}{R_{eq}} = \frac{70}{14} = 5 \,\text{A}\)</p>
+</div>
+</div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="main.html">Voltar para a página anterior</a></p>
+    </footer>
+</body>
+</html>
