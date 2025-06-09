@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>3º Anos - Física I</title>
+	<link rel="stylesheet" href="../style.css">
+	<!-- JS -->
+	<script src="../scripts.js" defer></script>
+	<!-- Scripts do MathJax -->
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+</head>
+
+<body>
+    <header>
+        <h1>3º Anos</h1>
+		<br>
+        <h1>Física I</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Aula 2Associação de Resistores (misto) II</h2>
+			<h4>Exercícios Resolvidos</h4>
+<!--
+	fonte
+-->
+<div class="exercicio">
+<p><strong>02:</strong>
+Texto!
+</p>
+<ol type="a">
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+</ol>
+<button onclick="toggleResolucao(this)">Ver resolução</button>
+<div class="resolucao-expansivel">
+<p>Resolução</p>
+<p>Letra (j)</p>
+<p>
+Texto!
+</p>
+<p>\( R_{eq} = R_1+R_2+R_3\)</p>
+</div>
+</div>
+
+<!--
+	fonte
+-->
+<div class="exercicio">
+<p><strong>03:</strong>
+O circuito elétrico representado abaixo é composto por fios e bateria ideais:
+</p>
+	<img src="https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1594328245513-WGRnb9pSHo.png"
+	alt="figura se não aparecer, se ferrou!" width="375" >
+<p>Com base nas informações, qual o valor da resistência \(R\)?</p>
+<ol type="a">
+<li> 5 \(\Omega\)</li>
+<li> 6 \(\Omega\)</li>
+<li> 7 \(\Omega\)</li>
+<li> 8 \(\Omega\)</li>
+<li> 9 \(\Omega\)</li>
+</ol>
+
+<button onclick="toggleResolucao(this)">Ver resolução</button>
+<div class="resolucao-expansivel">
+<p>Resolução</p>
+<p>Letra (c)</p>
+<p> Vamos escrever a lei de Ohm: </p>
+<p>\( U = R_{eq}\cdot i\)</p>
+<p>\( \frac{U}{i} = \frac{24}{5} = R_{eq}\)</p>
+<p> Agora, podemos usar a fórmula do produto pela soma: </p>
+<p>\(
+R_{eq} = \frac{R_1\cdot R_2}{R_1+R_2}
+       = \frac{(5+R)\cdot 8}{(5+R)+8}
+       = \frac{(5+R)\cdot 8}{13+R}
+\)</p>
+<p> Substituido, temos: </p>
+<p>\(\frac{24}{5} = \frac{(5+R)\cdot 8}{13+R}\)</p>
+<p> Observe que podemos simplificar as frações multiplicando ambos os lados por
+1/8: </p>
+<p>\(
+\frac{24}{5}\cdot{\color{red}\frac{1}{8}} = \frac{(5+R)\cdot 8}{13+R}\cdot{\color{red}\frac{1}{8}}
+\Rightarrow
+\frac{3}{5} = \frac{(5+R)}{13+R}
+\)</p>
+<p>\(3\cdot (13+R) = 5\cdot(5+R) \)</p>
+<p>\( 39+3R = 25+5R\)</p>
+<p>\( 39-25 = 5R-3R\)</p>
+<p>\( 14 = 2R\)</p>
+<p>\( R = \frac{14}{2} = 7 \, \Omega\)</p>
+</div>
+</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="main.html">Voltar para a página anterior</a></p>
+    </footer>
+</body>
+</html>

@@ -48,7 +48,7 @@ A18: Plano Inclinado
 
 [A23: Ass. Resis. Misto I](https://docs.google.com/presentation/d/1JJtS7yMxpIi7gkmHEtZMPC8Oj37wXm5CmQkBY8Qm7ew/edit?usp=sharing)
 
-[A24: Ass. Resis. Misto II]()
+[A24: Ass. Resis. Misto II](https://docs.google.com/presentation/d/1e-qIdQQZlGId2rg4npqqPCYOSyJha8Ij-PCjTvcnkKw/edit?usp=sharing)
 
 
 # 3 Energia
