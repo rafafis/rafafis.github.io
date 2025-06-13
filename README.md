@@ -20,6 +20,8 @@ A18: Plano Inclinado
 
 [A24: 2° lei de Newton](https://docs.google.com/presentation/d/1I_vAN8Qlp_3EhwySyhqWGoiqdehxh7O_EMlJ2UHQceo/edit?usp=sharing)
 
+[A25: 3° lei de Newton](https://docs.google.com/presentation/d/1JXhHTSnu-yVzAykl926XNL8nes3T4bV_ce9thoV6Ooc/edit?usp=sharing)
+
 # 3 Eletro
 
 [N5: Força](https://docs.google.com/presentation/d/1j_j56yfSHZWs39_3gbV6E9cFHpRIxwEeOSVXC9t3Uk0/edit?usp=sharing)
