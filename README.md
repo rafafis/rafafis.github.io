@@ -1,5 +1,7 @@
 # 1
 
+[r](https://docs.google.com/presentation/d/1QmK4pBaIVjYm5uj04tSRJGidhHpVPtytl6HH6gfCF2o/edit?usp=sharing)
+
 [A15: Movimento Variado](https://docs.google.com/presentation/d/1jOS24RGCD_bjNcl5pe-nFO-AdVQrfOcAus9dxizc4Ks/edit?usp=sharing)
 
 [A16: Frenagem](https://docs.google.com/presentation/d/1rgbOTWuSTNgwznIbGRerAUT938NCf_AQ7jyxZfY7oq4/edit?usp=sharing)
@@ -24,13 +26,7 @@ A18: Plano Inclinado
 
 # 3 Eletro
 
-[N5: Força](https://docs.google.com/presentation/d/1j_j56yfSHZWs39_3gbV6E9cFHpRIxwEeOSVXC9t3Uk0/edit?usp=sharing)
-
-[N6: Campo](https://docs.google.com/presentation/d/15r3-1qaySEjlTbuc_HWg0GMS3yT3GwRPg3tFT7QuFeE/edit?usp=sharing)
-
-[N7: DDP](https://docs.google.com/presentation/d/1kGur8oD9VIvmg96qNxzXA_ReRuTioapRwcb7oIo_2fI/edit?usp=sharing)
-
-[N8: Condutores e Isolantes](https://docs.google.com/presentation/d/1X7qkhyrnClFVJ_1CCmnfnWRmx7FrmOOfs-IT7hI_cvI/edit?usp=sharing)
+[r](https://docs.google.com/presentation/d/1knPnwFWPrm82HaIQVRBLcLeS0UtSj1Q2hIfcKe74vyM/edit?usp=sharing)
 
 [A15: Resistência Elétrica I](https://docs.google.com/presentation/d/1ijStVdf3D6r402w9bOcdR4mOJoXldvWtfMyQza6oirU/edit?usp=sharing)
 
