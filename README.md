@@ -58,3 +58,5 @@ A18: Plano Inclinado
 [Magnetismo](https://docs.google.com/presentation/d/1QkLNlwxgehgdXlprGVChOkmfeYxrQMiFnNiyEQUfhxY/edit?usp=sharing)
 
 [Leis do Eletromagnetismo](https://docs.google.com/presentation/d/1vY4dnRHAS-OOstLH6Q8VVsLK2yOIvGNlXVIxVmaqMJo/edit?usp=sharing)
+
+[Usinas](https://docs.google.com/presentation/d/1beHyzSoeJuQEifNfUrWjed0FrgHLWkAvE_UspxgqLjE/edit?usp=sharing)
