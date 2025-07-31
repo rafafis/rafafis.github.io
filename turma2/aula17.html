@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 17</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section id="aula10">
+            <h2>Aula 15 - Semáforo - Carros e pedestre com botão</h2>
+    		<h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+            href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2021-05/aula_15_semaforo_carros_pedestres_com_botao.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/ekowHKP50ks" 
+            title="Aula 15 Semáforo (Carros + Pedestres com Botão)" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Push button" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+        src="https://sketchfab.com/models/89dbd02b91bb42cebcb9bd5e1109f585/embed">
+    </iframe>
+</div>
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Programa de controle de semáforo interativo com pedestres. */
+
+// Definições dos pinos
+#define PIN_BOTAO             2
+#define PIN_LED_VERDE_PED     6
+#define PIN_LED_VERMELHO_PED  7
+#define PIN_LED_VERDE_CAR     8
+#define PIN_LED_AMARELO_CAR   9
+#define PIN_LED_VERMELHO_CAR 10
+
+volatile int modo = 0;           // 0: Carros, 1: Pedestres
+unsigned long ultimaInterrupcao = 0;  // Controle de debounce
+
+void setup() {
+  // Configura os pinos de entrada/saída
+  pinMode(PIN_BOTAO, INPUT);
+  pinMode(PIN_LED_VERDE_PED, OUTPUT);
+  pinMode(PIN_LED_VERMELHO_PED, OUTPUT);
+  pinMode(PIN_LED_VERDE_CAR, OUTPUT);
+  pinMode(PIN_LED_AMARELO_CAR, OUTPUT);
+  pinMode(PIN_LED_VERMELHO_CAR, OUTPUT);
+
+  // Interrupção no botão com debounce
+  attachInterrupt(digitalPinToInterrupt(PIN_BOTAO), botaoAcionado, FALLING);
+}
+
+void loop() {
+  switch (modo) {
+    case 0:  // Carros passam
+      digitalWrite(PIN_LED_VERDE_PED, LOW);
+      digitalWrite(PIN_LED_VERMELHO_PED, HIGH);
+      digitalWrite(PIN_LED_VERDE_CAR, HIGH);
+      digitalWrite(PIN_LED_AMARELO_CAR, LOW);
+      digitalWrite(PIN_LED_VERMELHO_CAR, LOW);
+      break;
+
+    case 1:  // Pedestres atravessam
+      delay(1000);  // Espera 1 segundo após pressionar botão
+
+      // Aciona amarelo dos carros
+      digitalWrite(PIN_LED_VERDE_CAR, LOW);
+      digitalWrite(PIN_LED_AMARELO_CAR, HIGH);
+      delay(3000);
+
+      // Carros param, pedestres passam
+      digitalWrite(PIN_LED_AMARELO_CAR, LOW);
+      digitalWrite(PIN_LED_VERMELHO_CAR, HIGH);
+      digitalWrite(PIN_LED_VERMELHO_PED, LOW);
+      digitalWrite(PIN_LED_VERDE_PED, HIGH);
+      delay(5000);
+
+      // Pisca o vermelho para pedestres
+      digitalWrite(PIN_LED_VERDE_PED, LOW);
+      for (int i = 0; i < 6; i++) {
+        digitalWrite(PIN_LED_VERMELHO_PED, HIGH);
+        delay(300);
+        digitalWrite(PIN_LED_VERMELHO_PED, LOW);
+        delay(300);
+      }
+
+      modo = 0;  // Volta para modo carros
+      break;
+  }
+}
+
+// Função da interrupção com debounce
+void botaoAcionado() {
+  unsigned long tempoAtual = millis();
+  if (tempoAtual - ultimaInterrupcao > 500) { // 500 ms para evitar rebote
+    modo = 1;
+    ultimaInterrupcao = tempoAtual;
+  }
+}
+
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
