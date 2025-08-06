@@ -31,3 +31,5 @@
 [Leis do Eletromagnetismo](https://docs.google.com/presentation/d/1vY4dnRHAS-OOstLH6Q8VVsLK2yOIvGNlXVIxVmaqMJo/edit?usp=sharing)
 
 [Usinas](https://docs.google.com/presentation/d/1beHyzSoeJuQEifNfUrWjed0FrgHLWkAvE_UspxgqLjE/edit?usp=sharing)
+
+[Ondas](https://docs.google.com/presentation/d/1Ppc9wTlUe-fGHmLbdCCLNxkgZyrzy91Ob5I8vVB132s/edit?usp=sharing)
