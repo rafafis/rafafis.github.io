@@ -20,6 +20,8 @@
 
 [A28: Matriz](https://docs.google.com/presentation/d/1Qeva-OLKtj-iey1N3xWZD4G3Ygsr2JSZttNP_Vvu6_M/edit?usp=sharing)
 
+[A 29: Ímãs](https://docs.google.com/presentation/d/1QkLNlwxgehgdXlprGVChOkmfeYxrQMiFnNiyEQUfhxY/edit?usp=sharing)
+
 # 3 Energia
 
 [Máquinas](https://docs.google.com/presentation/d/1XgzGknkzrhTfHpXk54HGAfHNxpqo5i06-cFlGeEHuqo/edit?usp=sharing)
