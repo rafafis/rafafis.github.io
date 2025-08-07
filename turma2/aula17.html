@@ -37,25 +37,18 @@ href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/file
 
     <h4>Código da Aula:</h4>
 <pre><code class="language-ino" data-prismjs-copy="Copiar!">
-/*
-  Piscar LED
-  Liga um LED por um segundo, depois o desliga por um segundo, repetidamente.
-*/
-
-// A função setup() é executada uma vez ao pressionar reset ou ao ligar a placa
+const int LED_OUTPUT_PIN = 3;
 void setup() {
-  // Inicializa o pino digital LED_INTERNO como saída
-  pinMode(LED_BUILTIN, OUTPUT); // LED_BUILTIN representa o LED interno da placa
+  // set Pin 3 to output
+  pinMode(LED_OUTPUT_PIN, OUTPUT);
 }
 
-// A função loop() é executada repetidamente em um laço infinito
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // Liga o LED (nível de tensão alto)
-  delay(1000);                       // Aguarda por 1 segundo (1000 milissegundos)
-  digitalWrite(LED_BUILTIN, LOW);    // Desliga o LED (nível de tensão baixo)
-  delay(1000);                       // Aguarda por 1 segundo
+  digitalWrite(LED_OUTPUT_PIN, HIGH);  // turn LED on (output 5V)
+  delay(1000);                         // wait one second
+  digitalWrite(LED_OUTPUT_PIN, LOW);   // turn LED off (output 0V)
+  delay(1000);                         // wait another second
 }
-
 </code></pre>
 </section>
 </main>
