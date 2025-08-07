@@ -242,9 +242,170 @@ Velocidade dos Beeps:
 
 Distante: Beeps lentos (1 segundo de intervalo)
 Próximo: Beeps rápidos (0.1 segundo de intervalo)
+
 <pre><code class="language-ino" data-prismjs-copy="Copiar!">
 #include &lt;HID.h&gt;
 #include &lt;TM1637Display.h&gt;
+
+// Definições dos pinos do display
+#define CLK 2
+#define DIO 3
+
+// Definições dos pinos do sensor ultrassônico HC-SR04
+#define TRIG_PIN 4
+#define ECHO_PIN 5
+
+// Definição do pino do buzzer
+#define BUZZER_PIN 6
+
+// Cria o objeto display
+TM1637Display display(CLK, DIO);
+
+void setup() {
+  // Inicializa comunicação serial para debug (opcional)
+  Serial.begin(9600);
+
+  // Configura o brilho do display
+  display.setBrightness(0x0f); // Brilho máximo
+
+  // Configura os pinos do sensor ultrassônico
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+
+  // Configura o pino do buzzer
+  pinMode(BUZZER_PIN, OUTPUT);
+
+  // Teste inicial do display e buzzer
+  display.showNumberDec(8888, true);
+  tone(BUZZER_PIN, 1000, 200); // Beep de teste
+  delay(1000);
+  display.clear();
+}
+
+void loop() {
+  // Mede a distância
+  float distancia = medirDistancia();
+
+  // Verifica se a leitura é válida
+  if (distancia > 0) {
+    // Converte para centímetros e limita a 9999 cm
+    int distanciaCm = (int)(distancia + 0.5); // Arredonda para o inteiro mais próximo
+    if (distanciaCm > 9999) {
+      distanciaCm = 9999;
+    }
+
+    // Exibe no display
+    display.showNumberDec(distanciaCm, true);
+
+    // Controla o buzzer baseado na distância
+    controlarBuzzer(distanciaCm);
+
+    // Debug no monitor serial (opcional)
+    Serial.print("Distância: ");
+    Serial.print(distancia, 2); // Mostra com 2 casas decimais
+    Serial.print(" cm (Display: ");
+    Serial.print(distanciaCm);
+    Serial.println(" cm)");
+  } else {
+    // Erro na leitura - exibe traços
+    uint8_t erro[] = {0x40, 0x40, 0x40, 0x40}; // ----
+    display.setSegments(erro);
+    noTone(BUZZER_PIN); // Para o buzzer em caso de erro
+    Serial.println("Erro na leitura!");
+  }
+
+  // Delay ajustado para permitir funcionamento do buzzer
+  delay(50);
+}
+
+// Variáveis para calibração
+const float FATOR_CALIBRACAO = 1.0; // Ajuste este valor conforme necessário
+const int NUM_LEITURAS = 5; // Número de leituras para média
+
+// Configurações do buzzer
+const int DISTANCIA_MAX_BUZZER = 100; // Distância máxima para ativar buzzer (cm)
+const int DISTANCIA_MIN_BUZZER = 5;   // Distância mínima para buzzer (cm)
+const int FREQ_MIN = 200;             // Frequência mínima (Hz)
+const int FREQ_MAX = 2000;            // Frequência máxima (Hz)
+const int DURACAO_BEEP = 50;          // Duração do beep em ms
+
+float medirDistancia() {
+  float somaLeituras = 0;
+  int leiturasValidas = 0;
+
+  // Faz múltiplas leituras para calcular média
+  for (int i = 0; i < NUM_LEITURAS; i++) {
+    // Limpa o pino TRIG
+    digitalWrite(TRIG_PIN, LOW);
+    delayMicroseconds(2);
+
+    // Envia um pulso de 10 microssegundos
+    digitalWrite(TRIG_PIN, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(TRIG_PIN, LOW);
+
+    // Lê o tempo de retorno do pulso
+    long duracao = pulseIn(ECHO_PIN, HIGH, 30000); // Timeout de 30ms
+
+    // Verifica se a leitura é válida
+    if (duracao > 0) {
+      // Calcula a distância em centímetros
+      // Velocidade do som ajustada: 343.2 m/s a 20°C
+      float distancia = (duracao * 0.03432) / 2;
+
+      // Aplica fator de calibração
+      distancia = distancia * FATOR_CALIBRACAO;
+
+      somaLeituras += distancia;
+      leiturasValidas++;
+    }
+
+    // Pequeno delay entre leituras
+    delayMicroseconds(50);
+  }
+
+  // Retorna a média das leituras válidas
+  if (leiturasValidas > 0) {
+    return somaLeituras / leiturasValidas;
+  } else {
+    return -1; // Erro na leitura
+  }
+}
+
+void controlarBuzzer(int distancia) {
+  // Verifica se a distância está dentro da faixa do buzzer
+  if (distancia >= DISTANCIA_MIN_BUZZER && distancia <= DISTANCIA_MAX_BUZZER) {
+
+    // Calcula a frequência baseada na distância (inversamente proporcional)
+    // Quanto menor a distância, maior a frequência
+    int frequencia = map(distancia, DISTANCIA_MIN_BUZZER, DISTANCIA_MAX_BUZZER, FREQ_MAX, FREQ_MIN);
+
+    // Calcula o intervalo entre beeps (inversamente proporcional à distância)
+    // Quanto menor a distância, menor o intervalo (mais rápido)
+    int intervalo = map(distancia, DISTANCIA_MIN_BUZZER, DISTANCIA_MAX_BUZZER, 100, 1000);
+
+    // Controla o padrão de beeps usando millis() para não bloquear o código
+    static unsigned long ultimoBeep = 0;
+    static bool buzzerLigado = false;
+
+    unsigned long agora = millis();
+
+    if (!buzzerLigado && (agora - ultimoBeep >= intervalo)) {
+      // Hora de fazer um beep
+      tone(BUZZER_PIN, frequencia, DURACAO_BEEP);
+      buzzerLigado = true;
+      ultimoBeep = agora;
+    } else if (buzzerLigado && (agora - ultimoBeep >= DURACAO_BEEP)) {
+      // Hora de parar o beep
+      noTone(BUZZER_PIN);
+      buzzerLigado = false;
+    }
+
+  } else {
+    // Distância fora da faixa - para o buzzer
+    noTone(BUZZER_PIN);
+  }
+}
 </code></pre>
 </section>
 </main>
