@@ -21,65 +21,77 @@
         <h1>Física I</h1>
     </header>
 
-    <main>
-        <section>
-            <h2>Aula 20: Associação de Resistores (Série) II</h2>
-			<h4>Exercícios Resolvidos</h4>
-<!--
-	fonte
--->
-<div class="exercicio">
-<p><strong>01:</strong>
-Texto!
-</p>
-<ol type="a">
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
-</ol>
-<button onclick="toggleResolucao(this)">Ver resolução</button>
-<div class="resolucao-expansivel">
-<p>Resolução</p>
-<p>Letra (j)</p>
-<p>
-Texto!
-</p>
-<p>\( R_{eq} = R_1+R_2+R_3\)</p>
-</div>
-</div>
-<!--
-	fonte
--->
-<div class="exercicio">
-<p><strong>02:</strong>
-Texto!
-</p>
-<ol type="a">
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
-</ol>
-<button onclick="toggleResolucao(this)">Ver resolução</button>
-<div class="resolucao-expansivel">
-<p>Resolução</p>
-<p>Letra (j)</p>
-<p>
-Texto!
-</p>
-<p>\( R_{eq} = R_1+R_2+R_3\)</p>
-</div>
-</div>
+	#include <TM1637Display.h>
 
-        </section>
-    </main>
+// Definições dos pinos do display
+#define CLK 2
+#define DIO 3
 
-    <footer>
-        <p>&copy; 2025 - Dr. Rafael Silva</p>
-        <p><a href="main.html">Voltar para a página anterior</a></p>
-    </footer>
+// Definições dos pinos do sensor ultrassônico HC-SR04
+#define TRIG_PIN 4
+#define ECHO_PIN 5
+
+// Cria o objeto display
+TM1637Display display(CLK, DIO);
+
+void setup() {
+  // Inicializa comunicação serial para debug (opcional)
+  Serial.begin(9600);
+
+  // Configura o brilho do display
+  display.setBrightness(0x0f); // Brilho máximo
+
+  // Configura os pinos do sensor ultrassônico
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+
+  // Teste inicial do display
+  display.showNumberDec(8888, true);
+  delay(1000);
+  display.clear();
+}
+
+void loop() {
+  // Mede a distância
+  float distancia = medirDistancia();
+
+  // Converte para centímetros e limita a 9999 cm
+  int distanciaCm = (int)distancia;
+  if (distanciaCm > 9999) {
+    distanciaCm = 9999;
+  }
+
+  // Exibe no display
+  display.showNumberDec(distanciaCm, true);
+
+  // Debug no monitor serial (opcional)
+  Serial.print("Distância: ");
+  Serial.print(distanciaCm);
+  Serial.println(" cm");
+
+  // Pequeno delay para estabilizar as leituras
+  delay(100);
+}
+
+float medirDistancia() {
+  // Limpa o pino TRIG
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+
+  // Envia um pulso de 10 microssegundos
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  // Lê o tempo de retorno do pulso
+  long duracao = pulseIn(ECHO_PIN, HIGH);
+
+  // Calcula a distância em centímetros
+  // Velocidade do som = 343 m/s = 0.0343 cm/µs
+  // Distância = (tempo * velocidade) / 2
+  float distancia = (duracao * 0.0343) / 2;
+
+  return distancia;
+}
 </body>
 </html>
