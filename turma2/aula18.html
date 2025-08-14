@@ -26,23 +26,67 @@
               <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
             </ul>
 		</section>
-        <section id="aula10">
-            <h2>Aula 18</h2>
+        <section>
+            <h2>Aula 18 - Portas PWM</h2>
+			O objetivo desta aula, conforme descrito no documento, é conhecer o funcionamento e a utilização do conversor analógico/digital presente no Arduino, bem como sua utilização na leitura de sinais analógicos
+.
+<section id="porta-pwm" lang="pt-BR">
+  <h2>O que é uma porta PWM?</h2>
+  <p>
+    Uma <strong>porta PWM</strong> (<em>Pulse Width Modulation</em> – Modulação por Largura de Pulso)
+    é um pino digital do microcontrolador que <strong>simula um sinal analógico</strong> ligando e
+    desligando rapidamente em alta frequência. Em vez de fornecer uma tensão contínua intermediária
+    (por exemplo, 2,5&nbsp;V), a porta alterna entre <strong>0&nbsp;V</strong> e <strong>5&nbsp;V</strong> e controla
+    a <em>proporção de tempo ligada</em> (duty cycle) dentro de cada período.
+  </p>
+
+  <h3>Como funciona</h3>
+  <ul>
+    <li><strong>0% de duty cycle</strong>: sempre desligado &rarr; tensão média ≈ 0&nbsp;V (LED apagado).</li>
+    <li><strong>50% de duty cycle</strong>: metade do tempo ligado &rarr; tensão média ≈ 2,5&nbsp;V (meia-luz).</li>
+    <li><strong>100% de duty cycle</strong>: sempre ligado &rarr; tensão média ≈ 5&nbsp;V (brilho máximo).</li>
+  </ul>
+
+  <h3>Para que serve</h3>
+  <p>
+    Controlar <strong>brilho de LEDs</strong>, <strong>velocidade de motores DC</strong>, <strong>volume de buzzer</strong>,
+    aquecimento por resistência, entre outras aplicações que dependem de potência “média” entregue ao atuador.
+  </p>
+
+  <h3>Portas PWM no Arduino Uno</h3>
+  <p>
+    No <strong>Arduino Uno</strong>, as portas PWM são marcadas com o símbolo <code>~</code> e normalmente são
+    os pinos <strong>3, 5, 6, 9, 10 e 11</strong>.
+  </p>
+
+  <h3>Exemplo rápido (Arduino)</h3>
+  <pre><code>// Varia o brilho de um LED usando PWM
+const int pinoLed = 11; // pino ~11
+void setup() { pinMode(pinoLed, OUTPUT); }
+void loop() {
+  for (int i = 0; i &lt;= 255; i++) { analogWrite(pinoLed, i); delay(10); }
+  for (int i = 255; i &gt;= 0; i--) { analogWrite(pinoLed, i); delay(10); }
+}</code></pre>
+
+  <p style="font-size:0.9rem;color:#555;">
+    Observação: PWM é uma técnica <em>digital</em> de controle por tempo; não usa o conversor analógico-digital (ADC).
+  </p>
+</section>
+
     		<h4>Roteiro da aula</h4>
         <a class="btn-pdf"
-href=""
+href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2021-05/aula_18_portas_pwm.pdf"
             target="_blank">
             📄 Baixar Roteiro da Aula (PDF)
         </a>
     <h4>Vídeo da Aula</h4>
     <div class="video-container">
         <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/ekowHKP50ks" 
-            title="Aula 15 Semáforo (Carros + Pedestres com Botão)" 
+            src="https://www.youtube.com/embed/oEeZLCMk0Cc" 
+            title="Aula 18 - Portas PWM" 
             frameborder="0" allowfullscreen>
         </iframe>
     </div>
-	<br>
 	<div class="modelo-3d">
     <h4>Visualização 3D do Projeto:</h4>
     <iframe title="Push button" frameborder="0" allowfullscreen
@@ -50,86 +94,28 @@ href=""
         allow="autoplay; fullscreen; xr-spatial-tracking"
         xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
         width="640" height="480"
-        src="https://sketchfab.com/models/89dbd02b91bb42cebcb9bd5e1109f585/embed">
+        src="https://sketchfab.com/models/7719bb793b0642299532fdceaa92e4a8/embed">
     </iframe>
 </div>
+	<br>
 
     <h4>Código da Aula:</h4>
 <pre><code class="language-ino" data-prismjs-copy="Copiar!">
-/* Programa de controle de semáforo interativo com pedestres. */
+/* Define a intensidade do brilho de um LED usando um pino
+PWM. */
 
-// Definições dos pinos
-#define PIN_BOTAO             2
-#define PIN_LED_VERDE_PED     6
-#define PIN_LED_VERMELHO_PED  7
-#define PIN_LED_VERDE_CAR     8
-#define PIN_LED_AMARELO_CAR   9
-#define PIN_LED_VERMELHO_CAR 10
-
-volatile int modo = 0;           // 0: Carros, 1: Pedestres
-unsigned long ultimaInterrupcao = 0;  // Controle de debounce
+int pinoLed = 11; /* Define o pino 11 como pino do LED. */
+int intensidade = 8; /* Defina o brilho do LED (0-255). */
 
 void setup() {
-  // Configura os pinos de entrada/saída
-  pinMode(PIN_BOTAO, INPUT);
-  pinMode(PIN_LED_VERDE_PED, OUTPUT);
-  pinMode(PIN_LED_VERMELHO_PED, OUTPUT);
-  pinMode(PIN_LED_VERDE_CAR, OUTPUT);
-  pinMode(PIN_LED_AMARELO_CAR, OUTPUT);
-  pinMode(PIN_LED_VERMELHO_CAR, OUTPUT);
-
-  // Interrupção no botão com debounce
-  attachInterrupt(digitalPinToInterrupt(PIN_BOTAO), botaoAcionado, FALLING);
+  /* Define o pino do LED como saída. */
+  pinMode(pinoLed, OUTPUT);
 }
 
 void loop() {
-  switch (modo) {
-    case 0:  // Carros passam
-      digitalWrite(PIN_LED_VERDE_PED, LOW);
-      digitalWrite(PIN_LED_VERMELHO_PED, HIGH);
-      digitalWrite(PIN_LED_VERDE_CAR, HIGH);
-      digitalWrite(PIN_LED_AMARELO_CAR, LOW);
-      digitalWrite(PIN_LED_VERMELHO_CAR, LOW);
-      break;
-
-    case 1:  // Pedestres atravessam
-      delay(1000);  // Espera 1 segundo após pressionar botão
-
-      // Aciona amarelo dos carros
-      digitalWrite(PIN_LED_VERDE_CAR, LOW);
-      digitalWrite(PIN_LED_AMARELO_CAR, HIGH);
-      delay(3000);
-
-      // Carros param, pedestres passam
-      digitalWrite(PIN_LED_AMARELO_CAR, LOW);
-      digitalWrite(PIN_LED_VERMELHO_CAR, HIGH);
-      digitalWrite(PIN_LED_VERMELHO_PED, LOW);
-      digitalWrite(PIN_LED_VERDE_PED, HIGH);
-      delay(5000);
-
-      // Pisca o vermelho para pedestres
-      digitalWrite(PIN_LED_VERDE_PED, LOW);
-      for (int i = 0; i < 6; i++) {
-        digitalWrite(PIN_LED_VERMELHO_PED, HIGH);
-        delay(300);
-        digitalWrite(PIN_LED_VERMELHO_PED, LOW);
-        delay(300);
-      }
-
-      modo = 0;  // Volta para modo carros
-      break;
-  }
+  /* Liga o LED com a intensidade definida. */
+  analogWrite(pinoLed, intensidade);
 }
-
-// Função da interrupção com debounce
-void botaoAcionado() {
-  unsigned long tempoAtual = millis();
-  if (tempoAtual - ultimaInterrupcao > 500) { // 500 ms para evitar rebote
-    modo = 1;
-    ultimaInterrupcao = tempoAtual;
-  }
-}
-
 </code></pre>
 </section>
 </main>
