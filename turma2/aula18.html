@@ -28,7 +28,7 @@
 		</section>
         <section>
             <h2>Aula 18 - Portas PWM</h2>
-			O objetivo desta aula, conforme descrito no documento, é conhecer o funcionamento e a utilização do conversor analógico/digital presente no Arduino, bem como sua utilização na leitura de sinais analógicos
+O objetivo desta aula é conhecer o funcionamento e a utilização do conversor analógico/digital presente no Arduino, bem como sua utilização na leitura de sinais analógicos
 .
 <section id="porta-pwm" lang="pt-BR">
   <h2>O que é uma porta PWM?</h2>
@@ -116,6 +116,54 @@ void loop() {
   /* Liga o LED com a intensidade definida. */
   analogWrite(pinoLed, intensidade);
 }
+</code></pre>
+    <h4>Código Avançado (3 estágios):</h4>
+Como ligar o botão:
+<br>
+1. Um terminal no pino 2 do Arduino.
+<br>
+2. Outro terminal no GND.
+<br>
+Usando INPUT_PULLUP, não é preciso resistor externo.
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/*
+  Controle de LED por botão com 3 estados:
+  1° clique  -> meia luz (PWM 128)
+  2° clique  -> luz máxima (PWM 255)
+  3° clique  -> desligado (PWM 0)
+*/
+
+const int pinoLed = 11;     // Pino PWM do LED
+const int pinoBotao = 2;    // Pino do botão (digital)
+int estado = 0;             // Estado atual (0=desligado, 1=meia luz, 2=total)
+bool botaoPressionado = false;
+
+void setup() {
+  pinMode(pinoLed, OUTPUT);
+  pinMode(pinoBotao, INPUT_PULLUP); // Botão ligado ao GND
+}
+
+void loop() {
+  // Leitura do botão (invertido pois está em INPUT_PULLUP)
+  if (digitalRead(pinoBotao) == LOW && !botaoPressionado) {
+    botaoPressionado = true;
+    estado++;
+    if (estado > 2) estado = 0; // Volta para 0 após 2
+  }
+
+  // Quando soltar o botão, permite novo clique
+  if (digitalRead(pinoBotao) == HIGH) {
+    botaoPressionado = false;
+  }
+
+  // Define o brilho do LED conforme o estado
+  switch (estado) {
+    case 0: analogWrite(pinoLed, 0);   break; // Desligado
+    case 1: analogWrite(pinoLed, 128); break; // Meia luz
+    case 2: analogWrite(pinoLed, 255); break; // Máxima
+  }
+}
+
 </code></pre>
 </section>
 </main>
