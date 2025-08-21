@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 19</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 19 - LED Fade-In</h2>
+			Acender um LED, com o efeito Fade-in, utilizando a função
+			analogWrite().
+
+    		<h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2021-05/aula_19_led_fade_in.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/lo338FU6Bvw" 
+            title="Aula 19 - LED Fade-In" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Aula 19 - LED Fade-In" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+        src="https://sketchfab.com/models/2d61e2bd7d2743a5a85cee4c21c1df7b/embed">
+    </iframe>
+</div>
+	<br>
+
+    <h4>Código da Aula:</h4>
+	Simples
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Efeito Fade-in em um LED usando um pino PWM. */
+int pinoLed = 11;   /* Define o pino 11 como pino do LED. */
+int incremento = 1; /* Incremento do brilho do LED. */
+
+void setup() {
+  pinMode(pinoLed, OUTPUT); /* Define o pino do LED como saída. */
+}
+
+void loop() {
+  /* Incrementa o brilho do LED de 0 a 255. */
+  for (int brilho = 0; brilho <= 255; brilho += incremento) {
+    /* Ajusta a intensidade do brilho a cada incremento. */
+    analogWrite(pinoLed, brilho);
+    delay(100);
+  }
+}
+</code></pre>
+	Intermediário: fade-in e fade-out contínuo.
+	<br>
+	Basta acrescentar um segundo "for" invertendo o brilho (de 255 até 0). Assim o
+	LED acende suavemente e depois apaga suavemente, repetindo para sempre.
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Efeito Fade-in e Fade-out em um LED usando PWM */
+int pinoLed = 11;   /* Define o pino 11 como pino do LED */
+int incremento = 5; /* Passo do brilho do LED (quanto maior, mais rápido o efeito) */
+int atraso = 30;    /* Tempo de espera entre passos em ms */
+
+void setup() {
+  pinMode(pinoLed, OUTPUT); /* Define o pino do LED como saída */
+}
+
+void loop() {
+  /* Fade-in: aumenta o brilho de 0 até 255 */
+  for (int brilho = 0; brilho <= 255; brilho += incremento) {
+    analogWrite(pinoLed, brilho);
+    delay(atraso);
+  }
+
+  /* Fade-out: diminui o brilho de 255 até 0 */
+  for (int brilho = 255; brilho >= 0; brilho -= incremento) {
+    analogWrite(pinoLed, brilho);
+    delay(atraso);
+  }
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
