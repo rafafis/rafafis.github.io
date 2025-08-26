@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 13</title>
+    <title>Aula 21</title>
     <link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../prism.css">
 	
@@ -27,67 +27,74 @@
             </ul>
 		</section>
         <section>
-            <h2>Aula 13 - Push button</h2>
+            <h2>Aula 21 - Super Máquina 80’s</h2>
+			Nesta aula, veremos a utilização da Barra Gráfica de LEDs 10
+Segmentos – display utilizado para realizar sinalizações e mostrar
+algum tipo de variável através da intensidade luminosa apresentada
+na barra – e desenvolveremos um projeto que remete à cultura dos
+anos 80.
+
     		<h4>Roteiro da aula</h4>
         <a class="btn-pdf"
-            href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2023-04/aula13_push_button_em_m1v3.pdf"
+href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2022-08/aula21_super_maquina_80_robotica_educacional_m1_versao2.pdf"
             target="_blank">
             📄 Baixar Roteiro da Aula (PDF)
         </a>
     <h4>Vídeo da Aula</h4>
     <div class="video-container">
         <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/K-xqExLey5o" 
-            title="Aula 13 - Push button" 
+            src="https://www.youtube.com/embed/GT1VhT2xEeE" 
+            title="Aula 21 - Super Máquina 80’s" 
             frameborder="0" allowfullscreen>
         </iframe>
     </div>
-	<br>
 	<div class="modelo-3d">
     <h4>Visualização 3D do Projeto:</h4>
-    <iframe title="Push button" frameborder="0" allowfullscreen
+    <iframe title="Aula 21 - Super Máquina 80’s" frameborder="0" allowfullscreen
         mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking"
         xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
         width="640" height="480"
-        src="https://sketchfab.com/models/f1e3822bfbb4417e9074f29338f3694a/embed">
+        src="https://sketchfab.com/models/6eb9d98fb84e4e94b12d5c044823bca9/embed">
     </iframe>
 </div>
+	<br>
 
     <h4>Código da Aula:</h4>
+	Simples
 <pre><code class="language-ino" data-prismjs-copy="Copiar!">
-/*
-  Programa de acionamento do LED através do botão (Push Button).
-  Pressionar o botão alterna o estado do LED (liga/desliga).
-*/
+/*******************************************************/
+/*     Aula 21 - Super Máquina 80’s                    */
+/*     Programação do efeito nos LEDs da Super Máquina */
+/*     (Carro da série Super Máquina dos anos 80).     */
+/*******************************************************/
 
-#define PINO_BOTAO 10   // Define o pino do botão
-#define PINO_LED 8      // Define o pino do LED
-
-bool estadoLED = LOW;       // Estado atual do LED (ligado = HIGH, desligado = LOW)
-bool estadoBotaoAtual;      // Estado atual do botão
-bool estadoBotaoAnterior = LOW;  // Estado anterior do botão (para detectar mudança)
+// Variável do tempo em que os LEDs se alternarão.
+// Influenciará na velocidade do efeito.
+int delay_milis = 30;
 
 void setup() {
-  pinMode(PINO_LED, OUTPUT);      // Configura o pino do LED como saída
-  pinMode(PINO_BOTAO, INPUT);     // Configura o pino do botão como entrada
+// Define os pinos de 2 à 6 como saídas
+  for (int i = 2; i <= 6; i++) {
+    pinMode(i, OUTPUT);
+  }
 }
 
 void loop() {
-  // Lê o estado atual do botão
-  estadoBotaoAtual = digitalRead(PINO_BOTAO);
-
-  // Verifica se o botão foi pressionado (mudança de LOW para HIGH)
-  if (estadoBotaoAtual == HIGH && estadoBotaoAnterior == LOW) {
-    estadoLED = !estadoLED;                       // Inverte o estado do LED
-    digitalWrite(PINO_LED, estadoLED);           // Atualiza o estado do LED
-    delay(50);                                    // Debounce: evita leituras múltiplas
+// Liga e desliga os LEDs na sequência dos pinos 2 à 6 /
+  for (int i = 2; i <= 6; i++) {
+    digitalWrite(i, HIGH);
+    delay(delay_milis);
+    digitalWrite(i, LOW);
   }
 
-  // Atualiza o estado anterior do botão
-  estadoBotaoAnterior = estadoBotaoAtual;
+// Liga e desliga os LEDs na sequência dos pinos 6 à 2
+  for (int i = 6; i >= 2; i--) {
+    digitalWrite(i, HIGH);
+    delay(delay_milis);
+    digitalWrite(i, LOW);
+  }
 }
-
 </code></pre>
 </section>
 </main>
