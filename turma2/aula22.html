@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 22</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 22 - Super Máquina 2008</h2>
+
+			Nesta aula, ampliaremos nosso conhecimento de uso da Barra Gráfica de LEDs 10 Segmentos inserindo, na programação, o efeito Fade-Out.
+			<br>
+O efeito Fade-Out ocorre quando, pela programação aplicada no acionamento do LED, tem-se o controle da iluminação, diminuindo o brilho do LED. Junto a este efeito, usaremos a função switch case para controle das fases de execução do programa (loop).
+
+    		<h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br//sites//alunos//arquivos_restritos//files//documento//2021-10//m1_aula22_super_maquina_2008.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/TfS-yg4B1lA" 
+            title="Aula 22 - Super Máquina 2008" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Aula 22 - Super Máquina 2008" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+        src="https://sketchfab.com/models/987de9c59715421087ac207aaa140913/embed">
+    </iframe>
+</div>
+	<br>
+
+    <h4>Código da Aula:</h4>
+	Simples
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Programa de controle sequencial de LEDs */
+/* Variável da velocidade do efeito */
+int velocidade = 20;
+
+void setup() {
+  /* Inicia os pinos dos LEDs como saída */
+  pinMode(3, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+}
+
+void loop() {
+  /* Loop da sequência frames */
+  for (int frame = 1; frame <= 13; frame++) {
+    switch (frame) {
+      case 1:
+        analogWrite(3, 0);
+        analogWrite(5, 0);
+        analogWrite(6, 0);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        break;
+
+      case 2:
+        analogWrite(3, 255);
+        analogWrite(5, 0);
+        analogWrite(6, 0);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        break;
+
+      case 3:
+        analogWrite(3, 100);
+        analogWrite(5, 255);
+        analogWrite(6, 0);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        break;
+
+      case 4:
+        analogWrite(3, 50);
+        analogWrite(5, 100);
+        analogWrite(6, 255);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        break;
+
+      case 5:
+        analogWrite(3, 5);   // <-- Faltava ponto e vírgula aqui
+        analogWrite(5, 50);
+        analogWrite(6, 100);
+        analogWrite(9, 255);
+        analogWrite(10, 0);
+        break;
+
+      case 6:
+        analogWrite(3, 0);
+        analogWrite(5, 5);
+        analogWrite(6, 50);
+        analogWrite(9, 100);
+        analogWrite(10, 255);
+        break;
+
+      case 7:
+        analogWrite(3, 0);
+        analogWrite(5, 0);
+        analogWrite(6, 5);
+        analogWrite(9, 255);
+        analogWrite(10, 100);
+        break;
+
+      case 8:
+        analogWrite(3, 0);
+        analogWrite(5, 0);
+        analogWrite(6, 255);
+        analogWrite(9, 100);
+        analogWrite(10, 50);
+        break;
+
+      case 9:
+        analogWrite(3, 0);
+        analogWrite(5, 255);
+        analogWrite(6, 100);
+        analogWrite(9, 50);
+        analogWrite(10, 5);
+        break;
+
+      case 10:
+        analogWrite(3, 255);
+        analogWrite(5, 100);
+        analogWrite(6, 50);
+        analogWrite(9, 5);
+        analogWrite(10, 0);
+        break;
+
+      case 11:
+        analogWrite(3, 100);
+        analogWrite(5, 50);
+        analogWrite(6, 5);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        break;
+
+      case 12:
+        analogWrite(3, 50);
+        analogWrite(5, 5);
+        analogWrite(6, 0);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        break;
+
+      case 13:
+        analogWrite(3, 5);
+        analogWrite(5, 0);
+        analogWrite(6, 0);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        break;
+    }
+
+    delay(1000 / velocidade);  // atraso ajustável
+  }
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
