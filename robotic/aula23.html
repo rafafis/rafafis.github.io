@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 23</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>3º Anos - Física III</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 23 - Sensor de som</h2>
+    <h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br/sites//alunos//arquivos_restritos//files//documento//2021-09//aula23_sensor_som_m2.pdf"
+target="_blank">📄 Baixar Roteiro da Aula (PDF)</a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/H0bzEqnt0aY" 
+            title="Aula 23 - Sensor de som" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Aula 23 - Sensor de som" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+		src="https://sketchfab.com/models/d7df54d61b5b49e3a7d6c7af7370d60b/embed">
+    </iframe>
+</div>
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Programa: Acionar LED com Som */
+
+// Define os pinos digitais para o sensor e para o LED
+const int pinoSom = 8;
+const int pinoLED = 13;
+
+// Variável booleana para definir o estado do LED (inicia desligado)
+bool estadoLED = LOW;
+
+void setup() {
+  // Configura o pino do sensor como entrada e do LED como saída
+  pinMode(pinoSom, INPUT);
+  pinMode(pinoLED, OUTPUT);
+  digitalWrite(pinoLED, estadoLED); // garante que o LED inicia apagado
+}
+
+void loop() {
+  // Lê o valor do sensor de som (0 ou 1)
+  int somDetectado = digitalRead(pinoSom);
+
+  // Se detectar um som, inverte o estado do LED
+  if (somDetectado == HIGH) {
+    estadoLED = !estadoLED; // alterna o estado do LED
+    digitalWrite(pinoLED, estadoLED);
+    delay(300); // evita múltiplas detecções rápidas (debounce)
+  }
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
