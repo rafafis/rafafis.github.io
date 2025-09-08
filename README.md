@@ -7,6 +7,7 @@ Vídeos:
 [Bigorna](https://www.youtube.com/watch?v=f5U63IGmy6Q)
 
 [A32](https://docs.google.com/presentation/d/1LUt7c2ThYu0jz-VT_1T7NcdlxZuTvPJedomSC9VRAzU/edit?usp=sharing)
+
 Vídeos:
 [Cama de pregos](https://www.youtube.com/watch?v=WekmCwvvFRQ)
 
