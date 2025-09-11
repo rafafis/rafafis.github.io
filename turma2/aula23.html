@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 23</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 23 - Potenciômetro</h2>
+<p>O <strong>potenciômetro</strong> é basicamente um resistor ajustável: girando o eixo, você muda a resistência e, consequentemente, a tensão que chega a algum ponto do circuito. Ele tem três pinos e é onipresente em equipamentos de áudio, instrumentos musicais, mixers e até joysticks.</p>
+
+  <p>Vamos usar esse componente para variar a luminosidade de um LED conectado ao Arduino. O truque é ler a tensão que sai do potenciômetro em uma porta analógica e converter esse valor em PWM — um trem de pulsos que “imita” níveis intermediários de tensão em pinos digitais marcados com “~”.</p>
+
+  <h2>Por que PWM?</h2>
+  <p>O Arduino UNO oferece seis saídas PWM (3, 5, 6, 9, 10 e 11). Nessas portas ele liga e desliga muito rápido, criando uma onda quadrada. Mantemos a frequência fixa e só alteramos o tempo em nível alto. Quanto maior esse tempo, mais o LED brilha.</p>
+
+  <h4>Materiais</h4>
+  <ul>
+    <li>Placa Arduino UNO (ou compatível)</li>
+    <li>Cabo USB</li>
+    <li>Protoboard</li>
+    <li>LED difuso 5 mm (verde, ou qualquer cor)</li>
+    <li>Resistor 220 Ω</li>
+    <li>Potenciômetro 10 kΩ</li>
+    <li>Jumpers macho-macho</li>
+  </ul>
+
+  <h4>Montagem</h4>
+  <p>Monte tudo na protoboard com o Arduino desligado:</p>
+  <ul>
+    <li>Cátodo (perna curta) do LED no GND, anodo no pino 9 através do resistor.</li>
+    <li>Potenciômetro: um extremo no 5 V, o outro no GND e o pino central na entrada analógica A5.</li>
+  </ul>
+
+  <h2>Código explicado passo a passo</h2>
+  <ol>
+    <li><strong>Variáveis</strong><br>
+      <code>ledPin = 9</code>, <code>potPin = A5</code>, <code>valorPot</code> para a leitura bruta (0-1023) e <code>pwm</code> para o valor mapeado (0-255).</li>
+    <li><strong>pinMode</strong><br>
+      <code>ledPin</code> como <em>OUTPUT</em>; <code>potPin</code> como <em>INPUT</em>.</li>
+    <li><strong>Serial</strong><br>
+      <code>Serial.begin(9600)</code> para acompanhar os valores no monitor serial.</li>
+    <li><strong>Leitura</strong><br>
+      <code>valorPot = analogRead(potPin)</code>.</li>
+    <li><strong>Mapeamento</strong><br>
+      <code>pwm = map(valorPot, 0, 1023, 0, 255)</code> — converte a escala de leitura (10 bits) para a escala do PWM (8 bits).</li>
+    <li><strong>Debug</strong><br>
+      <code>Serial.println(pwm)</code> — opcional, só para visualização.</li>
+    <li><strong>Saída</strong><br>
+      <code>analogWrite(ledPin, pwm)</code> faz o LED brilhar proporcionalmente.</li>
+  </ol>
+        
+
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <p align="center">
+<iframe width="725" height="453" src="https://www.tinkercad.com/embed/bfPRZqmwJuk?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</p>
+    
+</div>
+	<br>
+
+    <h4>Código da Aula:</h4>
+	Simples
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+const int ledPin = 9;     // LED no pino digital 9 (PWM)
+const int potPin = A5;    // Potenciômetro no pino analógico A5
+
+const int numLeituras = 10;   // Número de leituras para média
+int leituras[numLeituras];    // Array para armazenar valores
+int indice = 0;               // Índice da leitura atual
+long soma = 0;                // Soma das leituras
+int media = 0;                // Média final
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+
+  // Inicializa array de leituras com 0
+  for (int i = 0; i < numLeituras; i++) {
+    leituras[i] = 0;
+  }
+}
+
+void loop() {
+  // Remove valor antigo da soma
+  soma -= leituras[indice];
+
+  // Faz nova leitura do potenciômetro
+  leituras[indice] = analogRead(potPin);
+
+  // Adiciona o novo valor na soma
+  soma += leituras[indice];
+
+  // Avança o índice circular
+  indice++;
+  if (indice >= numLeituras) {
+    indice = 0;
+  }
+
+  // Calcula média
+  media = soma / numLeituras;
+
+  // Mapeia para faixa PWM (0–255)
+  int pwm = map(media, 0, 1023, 0, 255);
+
+  // Mostra valor no monitor serial
+  Serial.println(pwm);
+
+  // Aplica PWM no LED
+  analogWrite(ledPin, pwm);
+
+  delay(5);  // Tempo menor já que a média suaviza bastante
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
