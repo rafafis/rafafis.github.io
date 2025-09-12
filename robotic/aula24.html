@@ -103,63 +103,33 @@ As configurações do sensor de umidade e temperatura são feitas da seguinte fo
 <pre><code class="language-ino" data-prismjs-copy="Copiar!">
 // Inclui a biblioteca do sensor DHT
 #include &lt;DHT.h&gt;
+#define DHTPIN 2       // Pino digital onde o sinal DATA está conectado
+#define DHTTYPE DHT11  // Define o tipo do sensor
 
-// Definições de configuração
-#define DHTPIN A0     // Pino analógico A0 conectado ao sensor
-#define DHTTYPE DHT11 // Tipo do sensor (DHT11)
-
-/* CONEXÕES DO SENSOR DHT11:
- * Pino 1 (VCC) → +5V do Arduino
- * Pino 2 (DATA) → Pino A1 do Arduino  
- * Pino 3 → Não conectado
- * Pino 4 (GND) → GND do Arduino
- * Resistor pull-up de 10kΩ entre pino 2 (DATA) e pino 1 (VCC)
- */
-
-// Cria objeto do sensor DHT
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  // Inicializa comunicação serial
   Serial.begin(9600);
   Serial.println("=== Teste do Sensor DHT11 ===");
-  
-  // Inicializa o sensor DHT
   dht.begin();
-  
-  // Aguarda estabilização do sensor
-  delay(2000);
+  delay(2000); // Aguarda estabilização
 }
 
 void loop() {
-  // IMPORTANTE: Leituras do DHT11 podem levar até 250ms
-  // Intervalo mínimo recomendado entre leituras: 2 segundos
-  
-  // Lê umidade relativa (%)
   float umidade = dht.readHumidity();
-  
-  // Lê temperatura em Celsius (°C)
   float temperatura = dht.readTemperature();
-  
-  // Verifica se as leituras são válidas
-  if (isnan(temperatura) || isnan(umidade)) {
-    Serial.println("ERRO: Falha na leitura do sensor DHT11!");
-    Serial.println("Verifique as conexões e o sensor.");
-  } 
-  else {
-    // Exibe os resultados no monitor serial
+
+  if (isnan(umidade) || isnan(temperatura)) {
+    Serial.println("ERRO: Falha na leitura do sensor!");
+  } else {
     Serial.print("Umidade: ");
     Serial.print(umidade);
-    Serial.print("%");
-    Serial.print("\t"); // Tabulação para separar os valores
-    Serial.print("Temperatura: ");
+    Serial.print("%  Temperatura: ");
     Serial.print(temperatura);
     Serial.println("°C");
   }
-  
-  // Aguarda 2 segundos antes da próxima leitura
-  // (intervalo mínimo recomendado para o DHT11)
-  delay(2000);
+
+  delay(2000); // tempo mínimo entre leituras
 }
 </code></pre>
 </section>
