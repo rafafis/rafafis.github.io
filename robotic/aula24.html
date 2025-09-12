@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 24</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>3º Anos - Física III</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 24 - Sensor de umidade e temperatura</h2>
+            
+            Nesta aula, iremos estudar o Sensor de Umidade e Temperatura – DHT11, componente eletrônico capaz de medir a temperatura e a umidade ambiente, tendo como vantagem a simplicidade do sistema e o baixo custo.
+            
+                <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/PZmp2cC6TVo" 
+            title="Aula 24 - Sensor de umidade e temperatura" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+            
+    <h4>Roteiro da aula</h4>
+<!--
+        <a class="btn-pdf"
+href=""
+target="_blank">📄 Baixar Roteiro da Aula (PDF)</a>
+-->
+
+O Sensor de Umidade e Temperatura – DHT11 é um componente eletrônico utilizado em projetos que envolvem medição de temperatura e umidade ambiente. Este sensor faz medições de temperatura de 0º até 50º Celsius e mede a umidade do ar nas faixas de 20% a 90%.
+<br>
+
+<h2>Objetivos</h2>
+<ul>
+	<li>Desenvolver um sistema eletrônico que possa fazer o monitoramento da temperatura e a umidade do ar com o Sensor DHT11 com a plataforma Arduino;</li>
+	<li>Fornecer medição tanto de temperatura quanto da umidade do ar instantaneamente;</li>
+	<li>Estimular a criação de novos projetos para aplicações do Sensor de Umidade e Temperatura.</li>
+</ul>
+
+<h2>Lista de materiais</h2>
+<ul>
+	<li>01 Protoboard;</li>
+	<li>01 Placa Arduino Uno;</li>
+	<li>01 Cabo USB;</li>
+	<li>01 Sensor de Umidade e Temperatura – DHT11;</li>
+	<li>04 Jumpers Macho-Macho;</li>
+	<li>01 Resistor 4,7 KΩ;</li>
+	<li>01 Notebook;</li>
+	<li>Software Arduino IDE.</li>
+</ul>
+
+<h2>Montagem</h2>
+As configurações do sensor de umidade e temperatura são feitas da seguinte forma abaixo:
+
+<div style="text-align: center;">
+    <img src="https://www.makerhero.com/wp-content/uploads/2013/08/Sensor_DHT113.png.webp" alt="Sensor DHT11">
+</div>
+
+<ul>
+	<li>1º pino é o VCC, que deve ser ligado ao 5V do Arduino;</li>
+	<li>2º pino é o pino de dados, que deve ser ligado em uma porta analógica do Arduino;</li>
+	<li>3º pino é nulo, não precisando ser ligado;</li>
+	<li>01 Sensor de Umidade e Temperatura – DHT11;</li>
+	<li>4º pino é o GND do sensor, devendo ser ligado ao GND do Arduino.</li>
+</ul>
+
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Aula 24 - Sensor de umidade e temperatura" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+		src="https://sketchfab.com/models/ca30ddc368374894b0f81df8248f46c9/embed">
+    </iframe>
+</div>
+
+
+
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+// Inclui a biblioteca do sensor DHT
+#include &lt;DHT.h&gt;
+
+// Definições de configuração
+#define DHTPIN A0     // Pino analógico A0 conectado ao sensor
+#define DHTTYPE DHT11 // Tipo do sensor (DHT11)
+
+/* CONEXÕES DO SENSOR DHT11:
+ * Pino 1 (VCC) → +5V do Arduino
+ * Pino 2 (DATA) → Pino A1 do Arduino  
+ * Pino 3 → Não conectado
+ * Pino 4 (GND) → GND do Arduino
+ * Resistor pull-up de 10kΩ entre pino 2 (DATA) e pino 1 (VCC)
+ */
+
+// Cria objeto do sensor DHT
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  // Inicializa comunicação serial
+  Serial.begin(9600);
+  Serial.println("=== Teste do Sensor DHT11 ===");
+  
+  // Inicializa o sensor DHT
+  dht.begin();
+  
+  // Aguarda estabilização do sensor
+  delay(2000);
+}
+
+void loop() {
+  // IMPORTANTE: Leituras do DHT11 podem levar até 250ms
+  // Intervalo mínimo recomendado entre leituras: 2 segundos
+  
+  // Lê umidade relativa (%)
+  float umidade = dht.readHumidity();
+  
+  // Lê temperatura em Celsius (°C)
+  float temperatura = dht.readTemperature();
+  
+  // Verifica se as leituras são válidas
+  if (isnan(temperatura) || isnan(umidade)) {
+    Serial.println("ERRO: Falha na leitura do sensor DHT11!");
+    Serial.println("Verifique as conexões e o sensor.");
+  } 
+  else {
+    // Exibe os resultados no monitor serial
+    Serial.print("Umidade: ");
+    Serial.print(umidade);
+    Serial.print("%");
+    Serial.print("\t"); // Tabulação para separar os valores
+    Serial.print("Temperatura: ");
+    Serial.print(temperatura);
+    Serial.println("°C");
+  }
+  
+  // Aguarda 2 segundos antes da próxima leitura
+  // (intervalo mínimo recomendado para o DHT11)
+  delay(2000);
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
