@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 24</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 24 - Buzzer passivo</h2>
+			Nesta aula, ...
+
+    		<h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br//sites//alunos//arquivos_restritos//files//documento//2021-10//m1_aula24_buzzer_passivo.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/0TpKtr76kOU" 
+            title="Aula 24 - Buzzer passivo" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Aula 24 - Buzzer passivo" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+        src="https://sketchfab.com/models/889e219ae8924655a827714ae0ff1684/embed">
+    </iframe>
+</div>
+	<br>
+
+    <h4>Código da Aula:</h4>
+	Simples
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Programa: Produzindo sons através de um buzzer
+   Este programa toca uma sequência de notas musicais (Dó, Ré, Mi, Fá, Sol)
+   utilizando um buzzer passivo conectado ao pino 8 do Arduino.
+*/
+
+const int buzzer = 8;  // Pino ligado ao buzzer
+
+// Frequências das notas em Hz (Dó, Ré, Mi, Fá, Sol)
+const int notas[] = {261, 293, 329, 349, 392};
+
+// Duração de cada nota em milissegundos
+const int duracaoNota = 200;
+
+void setup() {
+  // Define o pino do buzzer como saída
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  // Percorre o array de frequências e toca cada nota
+  for (int i = 0; i < 5; i++) {
+    tone(buzzer, notas[i]);   // Aciona o buzzer na frequência da nota
+    delay(duracaoNota);       // Mantém a nota pelo tempo definido
+    noTone(buzzer);           // Desliga o buzzer
+    delay(50);                // Pausa curta entre notas
+  }
+
+  // Pausa maior antes de repetir a sequência
+  delay(2000);
+}
+</code></pre>
+
+Avançado!
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+// Qual é a música?
+
+// Definição das notas (frequências em Hz)
+#define NOTE_C4  262
+#define NOTE_CS4 277
+#define NOTE_D4  294
+#define NOTE_DS4 311
+#define NOTE_E4  330
+#define NOTE_F4  349
+#define NOTE_FS4 370
+#define NOTE_G4  392
+#define NOTE_GS4 415
+#define NOTE_A4  440
+#define NOTE_AS4 466
+#define NOTE_B4  494
+#define NOTE_C5  523
+#define NOTE_CS5 554
+#define NOTE_D5  587
+#define NOTE_DS5 622
+#define NOTE_E5  659
+#define NOTE_F5  698
+#define NOTE_FS5 740
+#define NOTE_G5  784
+#define NOTE_GS5 831
+#define NOTE_A5  880
+
+// Pino do buzzer
+const int buzzerPin = 8;
+
+// Melodia da Star Wars (trecho inicial)
+int melody[] = {
+  NOTE_A4, NOTE_A4, NOTE_A4, 
+  NOTE_F4, NOTE_C5, NOTE_A4, 
+  NOTE_F4, NOTE_C5, NOTE_A4, 
+  0,        NOTE_E5, NOTE_E5, NOTE_E5,
+  NOTE_F5, NOTE_C5, NOTE_GS4, NOTE_F4, NOTE_C5, NOTE_A4
+};
+
+// Durações correspondentes (em milissegundos)
+int noteDurations[] = {
+  500, 500, 500,
+  350, 150, 500,
+  350, 150, 1000,
+  500, 500, 500,
+  350, 150, 500, 350, 150, 1000
+};
+
+void setup() {
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  int notesCount = sizeof(melody) / sizeof(melody[0]);
+  for (int i = 0; i < notesCount; i++) {
+    int note = melody[i];
+    int duration = noteDurations[i];
+    if (note == 0) {
+      // silêncio / pausa
+      delay(duration);
+    } else {
+      tone(buzzerPin, note, duration);
+      delay(duration);
+      noTone(buzzerPin);
+    }
+    // pequena pausa entre notas
+    delay(50);
+  }
+  // espera antes de repetir
+  delay(2000);
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
