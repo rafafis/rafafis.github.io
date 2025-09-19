@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 26</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>3º Anos - Física III</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 26 - Sensor de gás e fumaça</h2>
+    <h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br//sites//alunos//arquivos_restritos//files//documento//2021-09//aula26_sensor_gas_fumaca_m2.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/wyFggvV8DTw" 
+            title="Aula 26 - Sensor de gás e fumaça" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Aula 26 - Sensor de gás e fumaça" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+		src="https://sketchfab.com/models/a949440413a04d6eae412162b8f6af0a/embed">
+    </iframe>
+</div>
+
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/* Programa: Detector de gás e fumaça */
+/* Definição dos pinos */
+#define MQ_analogico A0
+#define MQ_digital 4
+#define Buzzer 5
+#define Led_Verde 6
+#define Led_Vermelho 7
+
+/* Variáveis */
+int valor_analogico;
+int valor_digital;
+
+void setup() {
+  /* Inicia a comunicação serial com velocidade de 9600 bauds */
+  Serial.begin(9600);
+
+  /* Configura os pinos de entrada e saída */
+  pinMode(MQ_analogico, INPUT);
+  pinMode(MQ_digital, INPUT);
+  pinMode(Buzzer, OUTPUT);
+  pinMode(Led_Verde, OUTPUT);
+  pinMode(Led_Vermelho, OUTPUT);
+}
+
+void loop() {
+  valor_analogico = analogRead(MQ_analogico);   // leitura do nível de gás
+  valor_digital = digitalRead(MQ_digital);      // leitura do nível digital (threshold ajustado no trimpot)
+
+  Serial.print("Nível detectado: ");
+  Serial.print(valor_analogico);
+  Serial.print(" || ");
+
+  if (valor_digital == LOW) {  // LOW = gás detectado na maioria dos módulos MQ
+    Serial.println("GÁS DETECTADO !!!");
+    digitalWrite(Led_Verde, LOW);
+    digitalWrite(Led_Vermelho, HIGH);
+    tone(Buzzer, 262);   // mantém o tom ativo
+  } else {
+    Serial.println("GÁS AUSENTE !!!");
+    digitalWrite(Led_Verde, HIGH);
+    digitalWrite(Led_Vermelho, LOW);
+    noTone(Buzzer);      // desliga o buzzer
+  }
+
+  delay(500);
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>

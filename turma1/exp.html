@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>3º Anos - Física I</title>
+	<link rel="stylesheet" href="../style.css">
+	<!-- JS -->
+	<script src="../scripts.js" defer></script>
+	<!-- Scripts do MathJax -->
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+</head>
+<body>
+  <header>
+    <h1>Experimentos: Hidrostática</h1>
+    <p class="muted">Ferramentas para cálculo de volume de esfera, empuxo e volume deslocado na água. </p>
+  </header>
+
+  <main>
+    <!-- Seção: Volume da Esfera -->
+    <section class="card" id="sec-esfera">
+      <h2>Volume de uma esfera</h2>
+      <p>Fórmula:
+      $$
+      V = \frac{4}{3}\,\pi\,R^3
+      $$
+      com \(R\) em metros; para raio em milímetros, usar \(R_{\text{m}} = R_{\text{mm}}/1000\).
+      </p>
+
+      <div class="row">
+        <div>
+          <label for="raio">Raio da esfera (mm)</label>
+          <input id="raio" type="number" min="0" step="any" placeholder="ex.: 25" />
+          <div class="muted">Informe um valor não negativo. Use ponto para decimais. </div>
+        </div>
+        <div class="row">
+          <button id="btnCalcularEsfera" class="btn primary" type="button">Calcular</button>
+          <button id="btnLimparEsfera" class="btn" type="button">Limpar</button>
+        </div>
+      </div>
+
+      <div id="msg-esfera" class="status"></div>
+
+      <h3>Resultados</h3>
+      <div class="result-line" id="res-esfera">
+        <span class="kv"><strong>Volume (m³):</strong> <span id="v_m3">-</span></span>
+        <span class="kv"><strong>Volume (L):</strong> <span id="v_L">-</span></span>
+        <span class="kv"><strong>Volume (mL):</strong> <span id="v_mL">-</span></span>
+        <span class="kv"><strong>Volume (cm³):</strong> <span id="v_cm3">-</span></span>
+      </div>
+    </section>
+
+    <!-- Seção: Empuxo e Volume do objeto -->
+    <section class="card" id="sec-empuxo">
+      <h2>Empuxo e volume do objeto</h2>
+      <p>Fórmulas: \( E = (m_{\text{real}} - m_{\text{aparente}})\, g \cdot 10^{-3} \) e \( V = \frac{(m_{\text{real}} - m_{\text{aparente}})}{\rho_{\text{água}}} \). </p>
+      <p class="muted">Com \(m\) em gramas; \(g = 9{,}787\,\text{m/s}^2\); o fator \(10^{-3}\) converte g→kg em \(E\); \(V\) resulta em cm³ se \(\rho\) estiver em g/cm³. </p>
+
+      <div class="row" style="gap:18px;">
+        <div>
+          <label for="m_real">Massa real (g)</label>
+          <input id="m_real" type="text" inputmode="decimal" placeholder="ex.: 123,45" />
+        </div>
+        <div>
+          <label for="m_aparente">Massa aparente (g)</label>
+          <input id="m_aparente" type="text" inputmode="decimal" placeholder="ex.: 98,2" />
+        </div>
+      </div>
+
+      <h3>Temperatura da água (°C)</h3>
+      <div id="temperaturas" class="row" style="gap:8px;">
+        <button type="button" class="btn-temp">20</button>
+        <button type="button" class="btn-temp">21</button>
+        <button type="button" class="btn-temp">22</button>
+        <button type="button" class="btn-temp">23</button>
+        <button type="button" class="btn-temp">24</button>
+        <button type="button" class="btn-temp">25</button>
+        <button type="button" class="btn-temp">26</button>
+        <button type="button" class="btn-temp">27</button>
+        <button type="button" class="btn-temp">28</button>
+        <button type="button" class="btn-temp">29</button>
+        <button type="button" class="btn-temp">30</button>
+      </div>
+      <div class="row">
+        <div><strong>Densidade selecionada (g/cm³):</strong> <span id="rho_sel">-</span></div>
+      </div>
+
+      <div class="row" style="gap:10px; margin-top:10px;">
+        <button id="btnCalcEmpuxo" class="btn primary" type="button">Calcular empuxo</button>
+        <button id="btnCalcVolume" class="btn" type="button">Calcular volume</button>
+        <button id="btnLimparEV" class="btn ghost" type="button">Limpar</button>
+      </div>
+
+      <h3>Resultados</h3>
+      <div class="result-line">
+        <span class="kv"><strong>Empuxo E (N):</strong> <span id="empuxo_E">-</span></span>
+        <br>
+        <span class="kv"><strong>Volume V (cm³):</strong> <span id="volume_V">-</span></span>
+      </div>
+
+      <details>
+        <summary>Tabela ρ da água (20–30 °C)</summary>
+        <div style="overflow-x: auto;">
+          <table>
+            <thead><tr><th>Temperatura (°C)</th><th>Densidade (g/cm³)</th></tr></thead>
+            <tbody>
+              <tr><td>20</td><td>0,99825</td></tr>
+              <tr><td>21</td><td>0,99804</td></tr>
+              <tr><td>22</td><td>0,99782</td></tr>
+              <tr><td>23</td><td>0,99759</td></tr>
+              <tr><td>24</td><td>0,99735</td></tr>
+              <tr><td>25</td><td>0,99710</td></tr>
+              <tr><td>26</td><td>0,99683</td></tr>
+              <tr><td>27</td><td>0,99657</td></tr>
+              <tr><td>28</td><td>0,99629</td></tr>
+              <tr><td>29</td><td>0,99600</td></tr>
+              <tr><td>30</td><td>0,99565</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito para aulas e práticas de hidrostática. Verifique unidades e arredondamentos conforme a necessidade experimental. </p>
+  </footer>
+
+  <script>
+    // Configuração MathJax para usar vírgula como separador decimal
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true
+      },
+      options: {
+        processHtmlClass: 'tex2jax_process',
+        ignoreHtmlClass: 'tex2jax_ignore'
+      }
+    };
+
+    // Utilidades
+    function parseBrNumber(s) {
+      if (typeof s !== "string") s = String(s ?? "");
+      s = s.trim().replace(/\s/g, "").replace(/\./g, "").replace(",", ".");
+      const x = parseFloat(s);
+      return !isNaN(x) && isFinite(x) ? x : NaN;
+    }
+
+    function formatNumber(x, frac = 6) {
+      if (!isFinite(x) || isNaN(x)) return "-";
+      const absx = Math.abs(x);
+      if (absx !== 0 && (absx < 1e-4 || absx >= 1e6)) {
+        return x.toExponential(4).replace(".", ",");
+      }
+      return x.toLocaleString("pt-BR", { 
+        minimumFractionDigits: 0,
+        maximumFractionDigits: frac 
+      });
+    }
+
+    // -----------------------------
+    // Volume da Esfera
+    // -----------------------------
+    (function esfera() {
+      const raio = document.getElementById("raio");
+      const btnCalc = document.getElementById("btnCalcularEsfera");
+      const btnLimpar = document.getElementById("btnLimparEsfera");
+      const msg = document.getElementById("msg-esfera");
+      const v_m3 = document.getElementById("v_m3");
+      const v_L  = document.getElementById("v_L");
+      const v_mL = document.getElementById("v_mL");
+      const v_cm3 = document.getElementById("v_cm3");
+
+      function calcular() {
+        const r_mm = parseFloat(raio.value);
+        
+        // Validação de entrada
+        if (isNaN(r_mm) || !isFinite(r_mm)) {
+          msg.textContent = "Digite um número válido para o raio em mm.";
+          msg.className = "status err";
+          limparResultados();
+          return;
+        }
+        
+        if (r_mm < 0) {
+          msg.textContent = "O raio não pode ser negativo.";
+          msg.className = "status err";
+          limparResultados();
+          return;
+        }
+
+        // Cálculos
+        const r_m = r_mm / 1000;
+        const volume_m3 = (4 / 3) * Math.PI * Math.pow(r_m, 3);
+        const volume_L   = volume_m3 * 1000;
+        const volume_mL  = volume_L * 1000;
+        const volume_cm3 = volume_m3 * 1e6;
+
+        // Exibição dos resultados
+        v_m3.textContent  = formatNumber(volume_m3, 8);
+        v_L.textContent   = formatNumber(volume_L, 6);
+        v_mL.textContent  = formatNumber(volume_mL, 4);
+        v_cm3.textContent = formatNumber(volume_cm3, 4);
+
+        msg.textContent = "Cálculo realizado com sucesso.";
+        msg.className = "status ok";
+      }
+
+      function limparResultados() {
+        v_m3.textContent = v_L.textContent = v_mL.textContent = v_cm3.textContent = "-";
+      }
+
+      function limpar() {
+        raio.value = "";
+        msg.textContent = "";
+        msg.className = "status";
+        limparResultados();
+        raio.focus();
+      }
+
+      // Event listeners
+      btnCalc.addEventListener("click", calcular);
+      btnLimpar.addEventListener("click", limpar);
+      raio.addEventListener("keydown", (e) => { 
+        if (e.key === "Enter") calcular(); 
+      });
+      raio.addEventListener("input", function() {
+        if (msg.className === "status err") {
+          msg.textContent = "";
+          msg.className = "status";
+        }
+      });
+    })();
+
+    // -----------------------------
+    // Empuxo e Volume do Objeto
+    // -----------------------------
+    (function empuxoVolume() {
+      const rhoAgua = {
+        20: 0.99825, 21: 0.99804, 22: 0.99782, 23: 0.99759, 24: 0.99735,
+        25: 0.99710, 26: 0.99683, 27: 0.99657, 28: 0.99629, 29: 0.99600, 30: 0.99565
+      }; // g/cm³ 
+      const G = 9.787; // m/s² 
+
+      const mReal = document.getElementById("m_real");
+      const mAparente = document.getElementById("m_aparente");
+      const empuxoE = document.getElementById("empuxo_E");
+      const volumeV = document.getElementById("volume_V");
+      const rhoSel = document.getElementById("rho_sel");
+      const temps = document.getElementById("temperaturas");
+      const btnEmpuxo = document.getElementById("btnCalcEmpuxo");
+      const btnVolume = document.getElementById("btnCalcVolume");
+      const btnLimpar = document.getElementById("btnLimparEV");
+
+      let tempSelecionada = null;
+
+      function setTemp(btn) {
+        temps.querySelectorAll(".btn-temp").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+
+      temps.addEventListener("click", (e) => {
+        const t = e.target;
+        if (!t.classList.contains("btn-temp")) return;
+        
+        const temp = parseInt(t.textContent.trim());
+        if (!rhoAgua[temp]) return;
+        
+        tempSelecionada = temp;
+        rhoSel.textContent = String(rhoAgua[temp]).replace(".", ",");
+        setTemp(t);
+      });
+
+      function lerMassas() {
+        const mr = parseBrNumber(mReal.value);
+        const ma = parseBrNumber(mAparente.value);
+        
+        if (!isFinite(mr) || isNaN(mr) || !isFinite(ma) || isNaN(ma)) {
+          alert("Preencha valores válidos para as massas em gramas. Use vírgula para decimais.");
+          return null;
+        }
+        
+        if (mr < 0 || ma < 0) {
+          alert("As massas não podem ser negativas.");
+          return null;
+        }
+        
+        if (mr <= ma) {
+          alert("A massa real deve ser maior que a massa aparente para haver empuxo.");
+          return null;
+        }
+        
+        return { mr, ma };
+      }
+
+      function calcEmpuxo() {
+        const m = lerMassas();
+        if (!m) return;
+        
+        const delta_g = m.mr - m.ma; // g
+        const E = delta_g * G * 1e-3; // N (conversão g→kg)
+        empuxoE.textContent = formatNumber(E, 6);
+      }
+
+      function calcVolume() {
+        const m = lerMassas();
+        if (!m) return;
+        
+        if (tempSelecionada === null) {
+          alert("Selecione a temperatura da água para obter a densidade correspondente.");
+          return;
+        }
+        
+        const delta_g = m.mr - m.ma; // g
+        const rho = rhoAgua[tempSelecionada]; // g/cm³
+        const Vcm3 = delta_g / rho; // cm³
+        volumeV.textContent = formatNumber(Vcm3, 6);
+      }
+
+      function limpar() {
+        mReal.value = "";
+        mAparente.value = "";
+        empuxoE.textContent = "-";
+        volumeV.textContent = "-";
+        rhoSel.textContent = "-";
+        tempSelecionada = null;
+        temps.querySelectorAll(".btn-temp").forEach(b => b.classList.remove("active"));
+        mReal.focus();
+      }
+
+      // Event listeners
+      btnEmpuxo.addEventListener("click", calcEmpuxo);
+      btnVolume.addEventListener("click", calcVolume);
+      btnLimpar.addEventListener("click", limpar);
+
+      // Enter nos campos de massa
+      mReal.addEventListener("keydown", (e) => { 
+        if (e.key === "Enter") mAparente.focus(); 
+      });
+      mAparente.addEventListener("keydown", (e) => { 
+        if (e.key === "Enter") calcEmpuxo(); 
+      });
+    })();
+  </script>
+</body>
+</html>
