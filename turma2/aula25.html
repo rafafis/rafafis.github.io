@@ -52,7 +52,9 @@ href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/file
     </div>
     	<div class="modelo-3d">
     <h4>Visualização 3D do Projeto:</h4>
+	<br>
     <span>🤡</span>
+	<br>
     <iframe title="Aula 24 - Buzzer passivo" frameborder="0" allowfullscreen
         mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking"
@@ -67,10 +69,10 @@ href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/file
 	Simples
 <pre><code class="language-ino" data-prismjs-copy="Copiar!">
 /*********************************************************/
-/* Aula 25 - LED RGB */
-/* Alternando as cores do LED RGB conforme leitura do   */
+/* Aula 25 - LED RGB                                     */
+/* Alternando as cores do LED RGB conforme leitura do    */
 /* potenciômetro.                                        */
-/*                                                     */
+/*                                                       */
 /* ATENÇÃO:                                              */
 /* Nas linhas onde definimos `modelo`, você deve         */
 /* descomentar apenas uma linha: “Ânodo Comum” ou        */
@@ -79,9 +81,9 @@ href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/file
 
 // Defina **apenas uma** dessas linhas, conforme seu LED RGB:
 // ---> Se for LED RGB de **ânodo comum**, use esta:
-char modelo[] = "Ânodo Comum";
+// char modelo[] = "Ânodo Comum";
 // ---> Se for LED RGB de **cátodo comum**, use esta:
-// char modelo[] = "Cátodo Comum";
+char modelo[] = "Cátodo Comum";
 
 int Pin_pot = A0;    // pino analógico onde está conectado o potenciômetro
 int Pot = 0;         // variável para armazenar leitura do potenciômetro
@@ -151,8 +153,8 @@ Olhe o código para mudar os pinos dos LED's.
 /*********************************************************/
 
 // Descomente **uma** dessas, conforme seu LED RGB:
-char modelo[] = "Ânodo Comum";
-// char modelo[] = "Cátodo Comum";
+//char modelo[] = "Ânodo Comum";
+char modelo[] = "Cátodo Comum";
 
 const int Pin_pot = A0;    // Pino do potenciômetro
 int Pot = 0;               
