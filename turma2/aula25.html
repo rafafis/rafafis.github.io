@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 24</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 2º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 25 - LED RGB</h2>
+			Você já observou algumas iluminações decorativas – como, por exemplo, jardins, piscinas, alto-falantes ou micro systems – em que um mesmo ponto de luz vai alternando entre cores? O que será que promove este efeito? E como controlar – ou definir – cada cor que será emitida?
+			
+			O LED RGB é um tipo de diodo semicondutor que emite luz através da passagem de corrente elétrica, composto por três LEDs monocromáticos (vermelho, verde e azul), encapsulados em sua estrutura.
+			
+
+Através da programação, é possível controlar a emissão individual de cada cor, gerando assim infinitas opções de cores.
+
+
+    		<h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2022-07/aula25_led_rgb_robotica_educacional_m1_versao2.pdf"
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/OenFAQeFb7g" 
+            title="Aula 25 - LED RGB" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+    	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <span>🤡</span>
+    <iframe title="Aula 24 - Buzzer passivo" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+        src="https://sketchfab.com/models/xxx/embed">
+    </iframe>
+</div>
+
+
+    <h4>Código da Aula:</h4>
+	Simples
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/*********************************************************/
+/* Aula 25 - LED RGB */
+/* Alternando as cores do LED RGB conforme leitura do   */
+/* potenciômetro.                                        */
+/*                                                     */
+/* ATENÇÃO:                                              */
+/* Nas linhas onde definimos `modelo`, você deve         */
+/* descomentar apenas uma linha: “Ânodo Comum” ou        */
+/* “Cátodo Comum”, dependendo do LED RGB que você usa.   */
+/*********************************************************/
+
+// Defina **apenas uma** dessas linhas, conforme seu LED RGB:
+// ---> Se for LED RGB de **ânodo comum**, use esta:
+char modelo[] = "Ânodo Comum";
+// ---> Se for LED RGB de **cátodo comum**, use esta:
+// char modelo[] = "Cátodo Comum";
+
+int Pin_pot = A0;    // pino analógico onde está conectado o potenciômetro
+int Pot = 0;         // variável para armazenar leitura do potenciômetro
+
+int Led_R = 2;       // pino digital para LED Vermelho
+int Led_G = 3;       // pino digital para LED Verde
+int Led_B = 4;       // pino digital para LED Azul
+
+int ligar;           // estado “ligar” (HIGH ou LOW)
+int desligar;        // estado “desligar” (contrário de ligar)
+
+void setup() {
+  pinMode(Led_R, OUTPUT);
+  pinMode(Led_G, OUTPUT);
+  pinMode(Led_B, OUTPUT);
+
+  // Define os valores lógicos para ligar/desligar conforme tipo do LED RGB
+  // Se “modelo” começa com ‘C’ (Cátodo Comum), então ligar=HIGH, desligar=LOW
+  // Senão (Ânodo Comum), ligar=LOW, desligar=HIGH
+  if (modelo[0] == 'C') {
+    ligar = HIGH;
+    desligar = LOW;
+  } else {
+    ligar = LOW;
+    desligar = HIGH;
+  }
+
+  // Começa com todos os LEDs “desligados”
+  digitalWrite(Led_R, desligar);
+  digitalWrite(Led_G, desligar);
+  digitalWrite(Led_B, desligar);
+}
+
+void loop() {
+  Pot = analogRead(Pin_pot);
+
+  // Vermelho: intervalo [0 .. 341]
+  if (Pot >= 0 && Pot <= 341) {
+    digitalWrite(Led_R, ligar);
+  } else {
+    digitalWrite(Led_R, desligar);
+  }
+
+  // Verde: intervalo [342 .. 682]
+  if (Pot >= 342 && Pot <= 682) {
+    digitalWrite(Led_G, ligar);
+  } else {
+    digitalWrite(Led_G, desligar);
+  }
+
+  // Azul: intervalo [683 .. 1023]
+  if (Pot >= 683 && Pot <= 1023) {
+    digitalWrite(Led_B, ligar);
+  } else {
+    digitalWrite(Led_B, desligar);
+  }
+}
+</code></pre>
+<br>
+Avançado: Arco-íris.
+<br>
+Olhe o código para mudar os pinos dos LED's.
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/*********************************************************/
+/* LED RGB com mistura de cores (duas de cada vez)        */
+/* Controlado por um potenciômetro                       */
+/*********************************************************/
+
+// Descomente **uma** dessas, conforme seu LED RGB:
+char modelo[] = "Ânodo Comum";
+// char modelo[] = "Cátodo Comum";
+
+const int Pin_pot = A0;    // Pino do potenciômetro
+int Pot = 0;               
+
+// Pinos para as cores — devem ser pinos PWM (~)
+const int Led_R = 3;  // por exemplo ~3
+const int Led_G = 5;  // por exemplo ~5
+const int Led_B = 6;  // por exemplo ~6
+
+int ligar = 0;    // valor “ligar” (intensidade máxima ou lógica)
+int desligar = 0; // valor “desligar” (intensidade mínima ou lógica)
+
+void setup() {
+  pinMode(Led_R, OUTPUT);
+  pinMode(Led_G, OUTPUT);
+  pinMode(Led_B, OUTPUT);
+  
+  // Define os valores de “ligar” / “desligar” conforme tipo do LED
+  if (modelo[0] == 'C') {
+    // Cátodo Comum — para ligar, usamos valor máximo (255), para desligar 0
+    ligar = 255;
+    desligar = 0;
+  } else {
+    // Ânodo Comum — para ligar, usamos 0 (mínimo), para desligar usamos 255 (máximo)
+    ligar = 0;
+    desligar = 255;
+  }
+  
+  // Inicialmente desligar todas as cores
+  analogWrite(Led_R, desligar);
+  analogWrite(Led_G, desligar);
+  analogWrite(Led_B, desligar);
+}
+
+void loop() {
+  Pot = analogRead(Pin_pot);
+  
+  // Mapeia o valor do potenciômetro para 0..255
+  int val = map(Pot, 0, 1023, 0, 255);
+  
+  // Vamos dividir em três estágios (cada estágio mistura duas cores):
+  // Estágio 0: entre 0 e 85   → vermelha ↔ verde
+  // Estágio 1: entre 86 e 170 → verde ↔ azul
+  // Estágio 2: entre 171 e 255 → azul ↔ vermelha (ou voltar para início)
+  
+  // Valores para R, G, B
+  int vR = desligar;
+  int vG = desligar;
+  int vB = desligar;
+  
+  if (val <= 85) {
+    // misturar vermelho e verde
+    // quando val=0 → totalmente vermelho; quando val=85 → totalmente verde
+    vR = map(val, 0, 85, ligar, desligar);  // diminuir vermelho
+    vG = map(val, 0, 85, desligar, ligar);  // aumentar verde
+    vB = desligar;
+  }
+  else if (val <= 170) {
+    // misturar verde e azul
+    int sub = val - 85;  // subentre 0..85
+    vG = map(sub, 0, 85, ligar, desligar);  // diminuir verde
+    vB = map(sub, 0, 85, desligar, ligar);  // aumentar azul
+    vR = desligar;
+  }
+  else {
+    // misturar azul e vermelho
+    int sub = val - 170;  // subentre 0..85
+    vB = map(sub, 0, 85, ligar, desligar);   // diminuir azul
+    vR = map(sub, 0, 85, desligar, ligar);   // aumentar vermelho
+    vG = desligar;
+  }
+  
+  // Aplicar os valores via PWM
+  analogWrite(Led_R, vR);
+  analogWrite(Led_G, vG);
+  analogWrite(Led_B, vB);
+  
+  delay(20);  // pequeno atraso para suavizar a transição
+}
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
