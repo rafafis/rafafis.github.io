@@ -8,6 +8,8 @@ Vídeos:
 
 [A32](https://docs.google.com/presentation/d/1LUt7c2ThYu0jz-VT_1T7NcdlxZuTvPJedomSC9VRAzU/edit?usp=sharing)
 
+[A33](https://docs.google.com/presentation/d/1kJCSBfXupXgZYvgwrHtQsebapToqO0rcXNuvIyodNRo/edit?usp=sharing)
+
 Vídeos:
 [Cama de pregos](https://www.youtube.com/watch?v=WekmCwvvFRQ)
 
