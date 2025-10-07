@@ -23,4 +23,4 @@ Vídeos:
 
 # 3 Energia
 
-[Reflexão](https://docs.google.com/presentation/d/1xkNuOX6623oI1Z-ohiWhk2qPVelzO5Q-THk8wirLajE/edit?usp=sharing)
+[Refração](https://docs.google.com/presentation/d/1A20p7dEoaTKcsRiebuEGRFvpO5qQFxNUt53-ZCDDv6E/edit?usp=sharing)
