@@ -9,9 +9,6 @@ Vídeos:
 [A32](https://docs.google.com/presentation/d/1LUt7c2ThYu0jz-VT_1T7NcdlxZuTvPJedomSC9VRAzU/edit?usp=sharing)
 
 [A33](https://docs.google.com/presentation/d/1kJCSBfXupXgZYvgwrHtQsebapToqO0rcXNuvIyodNRo/edit?usp=sharing)
-
-[A37](https://docs.google.com/presentation/d/1hhceYT7j404jT5V8cSq0vpBy0imUPgerB71pM3CyUeQ/edit?usp=sharing)
-
 Vídeos:
 [Cama de pregos](https://www.youtube.com/watch?v=WekmCwvvFRQ)
 
@@ -22,6 +19,8 @@ Vídeos:
 [A32](https://docs.google.com/presentation/d/1cvkU4aKJYPH9F6ovQsyKxXIctfVar9SSBoxfaBvNhvc/edit?usp=sharing)
 
 [A33](https://docs.google.com/presentation/d/1oL-1ejNxE1oMIGN9FxOFkUWYpIIsZlwy6OOthUQn78E/edit?usp=sharing)
+
+[A37](https://docs.google.com/presentation/d/1hhceYT7j404jT5V8cSq0vpBy0imUPgerB71pM3CyUeQ/edit?usp=sharing)
 
 # 3 Energia
 
