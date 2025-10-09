@@ -7,6 +7,8 @@
 
 [A33](https://docs.google.com/presentation/d/1kJCSBfXupXgZYvgwrHtQsebapToqO0rcXNuvIyodNRo/edit?usp=sharing)
 
+[A34](https://docs.google.com/presentation/d/1mzzDZ1Cjq5bsdtMv3NJpDeytMIkRtfT1UtIvJAb0_VU/edit?usp=sharing)
+
 # 3 Física I
 
 [A31](https://docs.google.com/presentation/d/1eLEauB_aQRTzcKoh-NN1NS2ee9pL6CsgUy2IF7XsJAo/edit?usp=sharing)
