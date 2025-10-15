@@ -19,6 +19,8 @@
 
 [A37](https://docs.google.com/presentation/d/1hhceYT7j404jT5V8cSq0vpBy0imUPgerB71pM3CyUeQ/edit?usp=sharing)
 
+[A38](https://docs.google.com/presentation/d/1-eBBoLGWKja4ZHr1N4lAT6Z5MiTgawWOHoHVz1jV1Tw/edit?usp=sharing)
+
 # 3 Energia
 
 [Refração](https://docs.google.com/presentation/d/1A20p7dEoaTKcsRiebuEGRFvpO5qQFxNUt53-ZCDDv6E/edit?usp=sharing)
