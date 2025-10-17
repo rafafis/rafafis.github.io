@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 27</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
+	
+</head>
+
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>Turma 3º Anos - Física</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
+
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 27 - Sensor LDR</h2>
+			
+
+
+    		<h4>Roteiro da aula</h4>
+    		Não tem!
+        <a class="btn-pdf"
+href=""
+            target="_blank">
+            📄 Baixar Roteiro da Aula (PDF)
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/_qPj3lBqj68" 
+            title="Aula 27 - Sensor LDR" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+    	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+
+    <iframe title="Aula 27 - Sensor LDR" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        width="640" height="480"
+        src="https://sketchfab.com/models/b9638750f98e4c9dbb7338317ce2cb7b/embed">
+    </iframe>
+</div>
+
+
+    <h4>Código da Aula:</h4>
+	Simples
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+/************************************************************/
+/* Aula 27 - Sensor LDR                                     */
+/* Programação: Aciona um LED a partir da leitura do Sensor */
+/* de luminosidade (LDR).                                   */
+/************************************************************/
+
+int Sensor_LDR;        // para armazenar leitura analógica
+const int Pin_LDR = A0;  // pino analógico (A0) onde o LDR está conectado
+const int Pin_LED = 5;   // pino digital para controle do LED
+
+// ajuste este valor conforme sua iluminação / experimento
+const int limiar = 800;  // se a leitura for menor que esse valor, aciona LED
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(Pin_LED, OUTPUT);
+  // Não é necessário definir pinMode para o pino analógico ao usar analogRead
+}
+
+void loop() {
+  // lê valor analógico (0 a 1023) correspondente à luminosidade
+  Sensor_LDR = analogRead(Pin_LDR);
+
+  Serial.print("Valor lido: ");
+  Serial.println(Sensor_LDR);
+
+  delay(100);  // espera pequeno intervalo antes da próxima leitura
+
+  // se a luminosidade for baixa (valor abaixo do limiar), aciona LED
+  if (Sensor_LDR > limiar) {
+    digitalWrite(Pin_LED, HIGH);
+  } else {
+    digitalWrite(Pin_LED, LOW);
+  }
+}
+
+</code></pre>
+
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
+
+</html>
