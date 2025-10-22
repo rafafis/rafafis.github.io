@@ -5,9 +5,9 @@
 
 [A32](https://docs.google.com/presentation/d/1LUt7c2ThYu0jz-VT_1T7NcdlxZuTvPJedomSC9VRAzU/edit?usp=sharing)
 
-[A33](https://docs.google.com/presentation/d/1kJCSBfXupXgZYvgwrHtQsebapToqO0rcXNuvIyodNRo/edit?usp=sharing)
+[A34](https://docs.google.com/presentation/d/1kJCSBfXupXgZYvgwrHtQsebapToqO0rcXNuvIyodNRo/edit?usp=sharing)
 
-[A34](https://docs.google.com/presentation/d/1mzzDZ1Cjq5bsdtMv3NJpDeytMIkRtfT1UtIvJAb0_VU/edit?usp=sharing)
+[A35](https://docs.google.com/presentation/d/1mzzDZ1Cjq5bsdtMv3NJpDeytMIkRtfT1UtIvJAb0_VU/edit?usp=sharing)
 
 # 3 Física I
 
@@ -23,4 +23,4 @@
 
 # 3 Energia
 
-[Refração](https://docs.google.com/presentation/d/1A20p7dEoaTKcsRiebuEGRFvpO5qQFxNUt53-ZCDDv6E/edit?usp=sharing)
+[49](https://docs.google.com/presentation/d/1t9bdUyXK6dsFj4n38avUvvjPIOm8SvVZA-gb5vlkll0/edit?usp=sharing)

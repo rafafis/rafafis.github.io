@@ -1,111 +1,120 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 27</title>
-    <link rel="stylesheet" href="../style.css">
-	<link rel="stylesheet" href="../prism.css">
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Aula 27&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../style.css"&gt;
+	&lt;link rel="stylesheet" href="../prism.css"&gt;
 	
-</head>
+&lt;/head&gt;
 
-<body>
-	<script src="../prism.js"></script>
-    <header>
-        <h1>Turma 3º Anos - Física</h1>
-		<br>
-        <h1>Robótica</h1>
-    </header>
+&lt;body&gt;
+	&lt;script src="../prism.js"&gt;&lt;/script&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Turma 3º Anos - Física&lt;/h1&gt;
+		&lt;br&gt;
+        &lt;h1&gt;Robótica&lt;/h1&gt;
+    &lt;/header&gt;
 
-    <main>
-        <section id="links">
-            <h2>Links úteis</h2>
-            <ul>
-              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
-              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
-            </ul>
-		</section>
-        <section>
-            <h2>Aula 27 - Sensor LDR</h2>
+    &lt;main&gt;
+        &lt;section id="links"&gt;
+            &lt;h2&gt;Links úteis&lt;/h2&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href="https://www.tinkercad.com/" target="_blank"&gt;Tinkercad&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="https://app.arduino.cc/" target="_blank"&gt;Arduino&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+		&lt;/section&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Aula 27 - Acelerômetro e giroscópio&lt;/h2&gt;
 			
 
 
-    		<h4>Roteiro da aula</h4>
-    		Não tem!
-        <a class="btn-pdf"
-href=""
-            target="_blank">
-            📄 Baixar Roteiro da Aula (PDF)
-        </a>
-    <h4>Vídeo da Aula</h4>
-    <div class="video-container">
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/_qPj3lBqj68" 
-            title="Aula 27 - Sensor LDR" 
-            frameborder="0" allowfullscreen>
-        </iframe>
-    </div>
-    	<div class="modelo-3d">
-    <h4>Visualização 3D do Projeto:</h4>
+    		&lt;h4&gt;Roteiro da aula&lt;/h4&gt;
 
-    <iframe title="Aula 27 - Sensor LDR" frameborder="0" allowfullscreen
+        &lt;a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2022-03/aula27_acelerometro_giroscopio_robotica_educacional_m2_versao2.pdf" target="_blank"&gt;
+            📄 Baixar Roteiro da Aula (PDF)
+        &lt;/a&gt;
+    &lt;h4&gt;Vídeo da Aula&lt;/h4&gt;
+    &lt;div class="video-container"&gt;
+        &lt;iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/mmxbnB_QpKI" 
+            title="Aula 27 - Acelerômetro e giroscópio" 
+            frameborder="0" allowfullscreen&gt;
+        &lt;/iframe&gt;
+    &lt;/div&gt;
+    	&lt;div class="modelo-3d"&gt;
+    &lt;h4&gt;Visualização 3D do Projeto:&lt;/h4&gt;
+
+    &lt;iframe title="Aula 27 - Acelerômetro e giroscópio" frameborder="0" allowfullscreen
         mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking"
         xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
         width="640" height="480"
-        src="https://sketchfab.com/models/b9638750f98e4c9dbb7338317ce2cb7b/embed">
-    </iframe>
-</div>
+        src="https://sketchfab.com/models/868ae0f056864195b1b740f3aad2a29f/embed"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
 
 
-    <h4>Código da Aula:</h4>
+    &lt;h4&gt;Código da Aula:&lt;/h4&gt;
 	Simples
-<pre><code class="language-ino" data-prismjs-copy="Copiar!">
+&lt;pre&gt;&lt;code class="language-ino" data-prismjs-copy="Copiar!"&gt;
 /************************************************************/
-/* Aula 27 - Sensor LDR                                     */
-/* Programação: Aciona um LED a partir da leitura do Sensor */
-/* de luminosidade (LDR).                                   */
+/* Aula 27 - Acelerômetro e Giroscópio                       */
+/* Programação do Módulo Acelerômetro e Giroscópio           */
+/* MPU6050 que visa controlar dois Servos Motores */
+/* através da inclinação do Módulo nas direções dos eixos X e Y. */
 /************************************************************/
 
-int Sensor_LDR;        // para armazenar leitura analógica
-const int Pin_LDR = A0;  // pino analógico (A0) onde o LDR está conectado
-const int Pin_LED = 5;   // pino digital para controle do LED
+/* Inclusão das bibliotecas */
+#include &lt;GY6050.h&gt;
+#include &lt;Servo.h&gt;
 
-// ajuste este valor conforme sua iluminação / experimento
-const int limiar = 800;  // se a leitura for menor que esse valor, aciona LED
+/* Define os objetos de controle para cada servo */
+Servo servo_1;
+Servo servo_2;
+
+/* Variáveis para as posições dos servos */
+int eixo_X = 0;
+int eixo_Y = 0;
+
+/* Define o objeto de controle do módulo em seu endereço I2C */
+GY6050 giroscopio(0x68);  // endereço I2C 0x68 padrão para MPU6050
 
 void setup() {
-  Serial.begin(9600);
-  pinMode(Pin_LED, OUTPUT);
-  // Não é necessário definir pinMode para o pino analógico ao usar analogRead
+  /* Inicializa o módulo */
+  giroscopio.initialisation();
+  delay(100);
+
+  /* Define as portas digitais de controle para cada servo */
+  servo_1.attach(7);
+  servo_2.attach(8);
 }
 
 void loop() {
-  // lê valor analógico (0 a 1023) correspondente à luminosidade
-  Sensor_LDR = analogRead(Pin_LDR);
+  /* Coleta os dados do módulo e converte em ângulos entre 0 e 180 graus */
+  /* Atualiza as variáveis com os ângulos atuais */
+  eixo_X = map( giroscopio.refresh('A', 'X'), -90, 90, 0, 180 );
+  eixo_Y = map( giroscopio.refresh('A', 'Y'), -90, 90, 0, 180 );
 
-  Serial.print("Valor lido: ");
-  Serial.println(Sensor_LDR);
+  /* Posiciona cada servo no ângulo atual */
+  servo_1.write(eixo_X);
+  servo_2.write(eixo_Y);
 
-  delay(100);  // espera pequeno intervalo antes da próxima leitura
-
-  // se a luminosidade for baixa (valor abaixo do limiar), aciona LED
-  if (Sensor_LDR > limiar) {
-    digitalWrite(Pin_LED, HIGH);
-  } else {
-    digitalWrite(Pin_LED, LOW);
-  }
+  /* Pequena pausa para atualizar as posições */
+  delay(15);
 }
 
-</code></pre>
+&lt;/code&gt;&lt;/pre&gt;
 
-</section>
-</main>
-    <footer>
-        <p>&copy; 2025 - Dr. Rafael Silva</p>
-        <p><a href="./main.html">Voltar para a anterior</a></p>
-    </footer>
-</body>
+&lt;/section&gt;
+&lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2025 - Dr. Rafael Silva&lt;/p&gt;
+        &lt;p&gt;&lt;a href="./main.html"&gt;Voltar para a anterior&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
 
-</html>
+&lt;/html&gt;
