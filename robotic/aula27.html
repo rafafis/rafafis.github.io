@@ -1,66 +1,61 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang="pt-br"&gt;
+<!DOCTYPE html>
+<html lang="pt-br">
 
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Aula 27&lt;/title&gt;
-    &lt;link rel="stylesheet" href="../style.css"&gt;
-	&lt;link rel="stylesheet" href="../prism.css"&gt;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 27</title>
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../prism.css">
 	
-&lt;/head&gt;
+</head>
 
-&lt;body&gt;
-	&lt;script src="../prism.js"&gt;&lt;/script&gt;
-    &lt;header&gt;
-        &lt;h1&gt;Turma 3º Anos - Física&lt;/h1&gt;
-		&lt;br&gt;
-        &lt;h1&gt;Robótica&lt;/h1&gt;
-    &lt;/header&gt;
+<body>
+	<script src="../prism.js"></script>
+    <header>
+        <h1>3º Anos - Física III</h1>
+		<br>
+        <h1>Robótica</h1>
+    </header>
 
-    &lt;main&gt;
-        &lt;section id="links"&gt;
-            &lt;h2&gt;Links úteis&lt;/h2&gt;
-            &lt;ul&gt;
-              &lt;li&gt;&lt;a href="https://www.tinkercad.com/" target="_blank"&gt;Tinkercad&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="https://app.arduino.cc/" target="_blank"&gt;Arduino&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-		&lt;/section&gt;
-        &lt;section&gt;
-            &lt;h2&gt;Aula 27 - Acelerômetro e giroscópio&lt;/h2&gt;
-			
-
-
-    		&lt;h4&gt;Roteiro da aula&lt;/h4&gt;
-
-        &lt;a class="btn-pdf"
-href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2022-03/aula27_acelerometro_giroscopio_robotica_educacional_m2_versao2.pdf" target="_blank"&gt;
+    <main>
+        <section id="links">
+            <h2>Links úteis</h2>
+            <ul>
+              <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a></li>
+              <li><a href="https://app.arduino.cc/" target="_blank">Arduino</a></li>
+            </ul>
+		</section>
+        <section>
+            <h2>Aula 27 - Acelerômetro e giroscópio</h2>
+    <h4>Roteiro da aula</h4>
+        <a class="btn-pdf"
+href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/files/documento/2022-03/aula27_acelerometro_giroscopio_robotica_educacional_m2_versao2.pdf"
+            target="_blank">
             📄 Baixar Roteiro da Aula (PDF)
-        &lt;/a&gt;
-    &lt;h4&gt;Vídeo da Aula&lt;/h4&gt;
-    &lt;div class="video-container"&gt;
-        &lt;iframe width="560" height="315" 
+        </a>
+    <h4>Vídeo da Aula</h4>
+    <div class="video-container">
+        <iframe width="560" height="315" 
             src="https://www.youtube.com/embed/mmxbnB_QpKI" 
             title="Aula 27 - Acelerômetro e giroscópio" 
-            frameborder="0" allowfullscreen&gt;
-        &lt;/iframe&gt;
-    &lt;/div&gt;
-    	&lt;div class="modelo-3d"&gt;
-    &lt;h4&gt;Visualização 3D do Projeto:&lt;/h4&gt;
-
-    &lt;iframe title="Aula 27 - Acelerômetro e giroscópio" frameborder="0" allowfullscreen
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+	<br>
+	<div class="modelo-3d">
+    <h4>Visualização 3D do Projeto:</h4>
+    <iframe title="Aula 27 - Acelerômetro e giroscópio" frameborder="0" allowfullscreen
         mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking"
         xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
         width="640" height="480"
-        src="https://sketchfab.com/models/868ae0f056864195b1b740f3aad2a29f/embed"&gt;
-    &lt;/iframe&gt;
-&lt;/div&gt;
+		src="https://sketchfab.com/models/868ae0f056864195b1b740f3aad2a29f/embed">
+    </iframe>
+</div>
 
-
-    &lt;h4&gt;Código da Aula:&lt;/h4&gt;
-	Simples
-&lt;pre&gt;&lt;code class="language-ino" data-prismjs-copy="Copiar!"&gt;
+    <h4>Código da Aula:</h4>
+<pre><code class="language-ino" data-prismjs-copy="Copiar!">
 /************************************************************/
 /* Aula 27 - Acelerômetro e Giroscópio                       */
 /* Programação do Módulo Acelerômetro e Giroscópio           */
@@ -69,8 +64,8 @@ href="https://aluno.escoladigital.pr.gov.br/sites/alunos/arquivos_restritos/file
 /************************************************************/
 
 /* Inclusão das bibliotecas */
-#include &lt;GY6050.h&gt;
-#include &lt;Servo.h&gt;
+#include <GY6050.h>
+#include <Servo.h>
 
 /* Define os objetos de controle para cada servo */
 Servo servo_1;
@@ -106,15 +101,13 @@ void loop() {
   /* Pequena pausa para atualizar as posições */
   delay(15);
 }
+</code></pre>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2025 - Dr. Rafael Silva</p>
+        <p><a href="./main.html">Voltar para a anterior</a></p>
+    </footer>
+</body>
 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/section&gt;
-&lt;/main&gt;
-    &lt;footer&gt;
-        &lt;p&gt;&copy; 2025 - Dr. Rafael Silva&lt;/p&gt;
-        &lt;p&gt;&lt;a href="./main.html"&gt;Voltar para a anterior&lt;/a&gt;&lt;/p&gt;
-    &lt;/footer&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;
+</html>
