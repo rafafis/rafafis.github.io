@@ -1,26 +1,4 @@
-# 1
+# 7k
 
-[A31](https://docs.google.com/presentation/d/14zWrG3evuB_UhYAT2dtb4SAtPza9_OPRjBDzCtZxd6A/edit?usp=sharing)
+[Porcentagem](https://docs.google.com/presentation/d/1iyQWcfD2WpilCyxMvkH6fhxHLI-oJY21BwZIFgcSO7Y/edit?usp=sharing)
 
-
-[A32](https://docs.google.com/presentation/d/1LUt7c2ThYu0jz-VT_1T7NcdlxZuTvPJedomSC9VRAzU/edit?usp=sharing)
-
-[A34](https://docs.google.com/presentation/d/1kJCSBfXupXgZYvgwrHtQsebapToqO0rcXNuvIyodNRo/edit?usp=sharing)
-
-[A35](https://docs.google.com/presentation/d/1mzzDZ1Cjq5bsdtMv3NJpDeytMIkRtfT1UtIvJAb0_VU/edit?usp=sharing)
-
-# 3 Física I
-
-[A31](https://docs.google.com/presentation/d/1eLEauB_aQRTzcKoh-NN1NS2ee9pL6CsgUy2IF7XsJAo/edit?usp=sharing)
-
-[A32](https://docs.google.com/presentation/d/1cvkU4aKJYPH9F6ovQsyKxXIctfVar9SSBoxfaBvNhvc/edit?usp=sharing)
-
-[A33](https://docs.google.com/presentation/d/1oL-1ejNxE1oMIGN9FxOFkUWYpIIsZlwy6OOthUQn78E/edit?usp=sharing)
-
-[A37](https://docs.google.com/presentation/d/1hhceYT7j404jT5V8cSq0vpBy0imUPgerB71pM3CyUeQ/edit?usp=sharing)
-
-[A38](https://docs.google.com/presentation/d/1-eBBoLGWKja4ZHr1N4lAT6Z5MiTgawWOHoHVz1jV1Tw/edit?usp=sharing)
-
-# 3 Energia
-
-[49](https://docs.google.com/presentation/d/1t9bdUyXK6dsFj4n38avUvvjPIOm8SvVZA-gb5vlkll0/edit?usp=sharing)
